@@ -1,1402 +1,1391 @@
 // C++ Learning Path — Core Application & Interactive Engine 🚀
 
 const MODULES = [
-  { id: 1, title: "Fondasi Modern C++", icon: "fa-solid fa-flag", desc: "Sintaks, auto, constexpr & I/O" },
-  { id: 2, title: "Pointer & Memori", icon: "fa-solid fa-memory", desc: "Pointers, references & smart pointers" },
-  { id: 3, title: "OOP & Prinsip RAII", icon: "fa-solid fa-cubes", desc: "Classes, inheritance, virtual & RAII" },
-  { id: 4, title: "STL & Generic Programming", icon: "fa-solid fa-boxes-stacked", desc: "Containers, algorithms & templates" },
-  { id: 5, title: "Fitur Modern C++20", icon: "fa-solid fa-bolt", desc: "Concepts, ranges, move semantics & jthread" }
+  {
+    "id": 1,
+    "title": "Fondasi C++ Modern dan Tooling",
+    "icon": "fa-solid fa-code",
+    "desc": "Peserta mampu membangun, menjalankan, membaca error, dan menulis program C++ dasar di browser."
+  },
+  {
+    "id": 2,
+    "title": "Nilai, Referensi, dan Abstraksi Data",
+    "icon": "fa-solid fa-code",
+    "desc": "Peserta memahami nilai, lifetime, encapsulation, dan pembatasan konstansi."
+  },
+  {
+    "id": 3,
+    "title": "Object-Oriented C++ dan Polymorphism",
+    "icon": "fa-solid fa-code",
+    "desc": "Peserta mampu mendesain kelas, hierarki, interface, dan komposisi yang aman."
+  },
+  {
+    "id": 4,
+    "title": "Template dan Generic Programming",
+    "icon": "fa-solid fa-code",
+    "desc": "Peserta mampu menulis generic code yang aman, spesifik, dan mudah dibaca."
+  },
+  {
+    "id": 5,
+    "title": "Ownership, Smart Pointer, dan Memory Management",
+    "icon": "fa-solid fa-code",
+    "desc": "Peserta mampu mengelola resource tanpa leak, double-free, dan dangling pointer."
+  },
+  {
+    "id": 6,
+    "title": "Move Semantics, STL, dan In-Place Construction",
+    "icon": "fa-solid fa-code",
+    "desc": "Peserta memahami value category, perpindahan resource, dan penggunaan STL secara efisien."
+  },
+  {
+    "id": 7,
+    "title": "Algoritma, Ranges, dan Modern Standard Library",
+    "icon": "fa-solid fa-code",
+    "desc": "Peserta mampu memproses data dengan STL, iterators, dan ranges secara lazy serta ekspresif."
+  },
+  {
+    "id": 8,
+    "title": "Concurrency dan Parallelism",
+    "icon": "fa-solid fa-code",
+    "desc": "Peserta mampu menulis threaded code yang benar, aman, dan tidak mengalami data race."
+  },
+  {
+    "id": 9,
+    "title": "Coroutine Lanjutan, Concepts, dan Ranges",
+    "icon": "fa-solid fa-code",
+    "desc": "Peserta mampu merakit async API, generator, constrained generic, dan custom ranges."
+  },
+  {
+    "id": 10,
+    "title": "C++23, Performa, Reliabilitas, dan Capstone",
+    "icon": "fa-solid fa-code",
+    "desc": "Peserta mampu merancang, menguji, memprofiling, dan menyajikan aplikasi C++ modern yang realistis."
+  }
 ];
 
 const lessons = [
   {
-    id: 1,
-    slug: "pengenalan-modern-cpp",
-    title: "1. Pengenalan & Struktur Program C++20",
-    module: "Fondasi Modern C++",
-    moduleId: 1,
-    duration: "15 m",
-    level: "Pemula",
-    content: `# Pengenalan Modern C++20
-
-**C++** adalah bahasa pemrograman berkinerja tinggi yang menggabungkan kontrol hardware tingkat rendah dengan kemampuan abstraksi tingkat tinggi (*zero-overhead principle*).
-
-## Karakteristik Utama:
-1. **Zero-Overhead Principle:** Apa yang tidak Anda gunakan, tidak akan Anda bayar (tanpa runtime overhead).
-2. **Kompilasi Langsung ke Machine Code:** Memberikan performa maksimal untuk game engines, browser kernels, AI runtimes, dan sistem embedded.
-3. **Standar Modern (C++11 s.d. C++20/23):** Menghadirkan auto type deduction, lambda expressions, smart pointers, concepts, dan ranges.
-
-\`\`\`cpp
-#include <iostream>
-
-int main() {
-    std::cout << "Halo dari Modern C++20! 🚀" << std::endl;
-    return 0;
-}
-\`\`\``,
-    defaultCode: `#include <iostream>
-
-int main() {
-    std::cout << "Halo dari Modern C++20! 🚀" << std::endl;
-    std::cout << "Performa native tanpa garbage collector." << std::endl;
-    return 0;
-}`,
-    expectedOutput: "Halo dari Modern C++20! 🚀\nPerforma native tanpa garbage collector.",
-    hint: "Gunakan std::cout dan operator << untuk mencetak data ke terminal.",
-    quiz: {
-      question: "Apa filosofi dasar 'Zero-Overhead Principle' yang dirumuskan oleh Bjarne Stroustrup untuk C++?",
-      options: [
-        "Apa yang tidak Anda gunakan tidak membebani performa, dan apa yang Anda gunakan tidak dapat ditulis lebih efisien dengan tangan",
-        "Program C++ tidak memerlukan compiler saat dijalankan",
-        "Semua variabel dialokasikan otomatis di memori ROM",
-        "C++ tidak mendukung class dan inheritance"
+    "id": 1,
+    "slug": "cpp-lesson-1",
+    "title": "1. Program Pertama dengan C++20 dan C++23",
+    "module": "Fondasi C++ Modern dan Tooling",
+    "moduleId": 1,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Program Pertama dengan C++20 dan C++23\n\n### Materi Inti:\n- Alur compile, link, dan run program C++.\n- Peran header, namespace std, dan flag -std=c++20 atau -std=c++23.\n- Menjalankan kode C++ melalui JupyterLite/Xeus-Cling.",
+    "code": "// C++ C++20/C++23\n#include <iostream>\n\nint main() {\n    std::cout << \"Program Pertama dengan C++20 dan C++23\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa efek flag `-std=c++23`?",
+      "options": [
+        "Memilih standar C++23 untuk kompilasi, jika didukung compiler.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "Prinsip Zero-Overhead memastikan abstraksi bahasa dikompilasi menjadi instruksi mesin yang sama cepatnya dengan kode manual tingkat rendah."
+      "answer": 0,
+      "explanation": "Flag standar memengaruhi\u8bed\u6cd5 dan library yang boleh digunakan, tetapi dukungan implementasi tetap bergantung pada compiler."
     }
   },
   {
-    id: 2,
-    slug: "variabel-tipe-dan-auto",
-    title: "2. Tipe Data, 'auto', & Type Inference",
-    module: "Fondasi Modern C++",
-    moduleId: 1,
-    duration: "15 m",
-    level: "Pemula",
-    content: `# Type Inference dengan 'auto'
-
-Di C++11 ke atas, kata kunci \`auto\` memungkinkan compiler menyimpulkan (*deduce*) tipe data variabel berdasarkan nilai inisialisasinya saat kompilasi.
-
-## Keunggulan \`auto\`:
-- Mencegah inisialisasi yang tidak disengaja (uninitialized variables).
-- Mempermudah deklarasi iterator dan tipe kompleks.
-- Menjamin performa tanpa runtime cost karena tipe ditentukan saat compile-time.`,
-    defaultCode: `#include <iostream>
-#include <typeinfo>
-
-int main() {
-    auto score = 100;         // int
-    auto pi = 3.14159;        // double
-    auto flag = true;         // bool
-    auto letter = 'A';        // char
-    
-    std::cout << "Score: " << score << " (int)" << std::endl;
-    std::cout << "Pi: " << pi << " (double)" << std::endl;
-    std::cout << "Flag: " << std::boolalpha << flag << std::endl;
-    return 0;
-}`,
-    expectedOutput: "Score: 100 (int)\nPi: 3.14159 (double)\nFlag: true",
-    hint: "Keyword 'auto' mewajibkan variabel memiliki nilai inisialisasi awal.",
-    quiz: {
-      question: "Kapan tipe variabel yang dideklarasikan dengan 'auto' ditentukan di C++?",
-      options: [
-        "Saat kompilasi (compile-time) berdasarkan tipe ekspresi inisialisasi",
-        "Saat program dijalankan (runtime) secara dinamis",
-        "Tergantung pada sistem operasi target",
-        "Variabel auto selalu dikonversi menjadi void pointer"
+    "id": 2,
+    "slug": "cpp-lesson-2",
+    "title": "2. Tipe Data, Literal, `auto`, dan `constexpr`",
+    "module": "Fondasi C++ Modern dan Tooling",
+    "moduleId": 1,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Tipe Data, Literal, `auto`, dan `constexpr`\n\n### Materi Inti:\n- Tipe fundamental integer, floating-point, char, bool, dan pointer dasar.\n- Signedness, ukuran tipe, suffix literal, dan konversi angka.\n- `auto` untuk deduksi tipe dan `constexpr` untuk nilai compile-time.",
+    "code": "// C++ C++11/C++14\n#include <iostream>\n\nint main() {\n    std::cout << \"Tipe Data, Literal, `auto`, dan `constexpr`\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa tipe dari `auto x = 42LL;`?",
+      "options": [
+        "`long long`.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "'auto' adalah fitur static compile-time deduction; setelah dikompilasi, tipe variabel bersifat statis dan tidak berubah di runtime."
+      "answer": 0,
+      "explanation": "Suffix `LL` memaksa literal integer menjadi long long."
     }
   },
   {
-    id: 3,
-    slug: "constexpr-dan-compile-time",
-    title: "3. Evaluasi Waktu Kompilasi (`constexpr`)",
-    module: "Fondasi Modern C++",
-    moduleId: 1,
-    duration: "20 m",
-    level: "Menengah",
-    content: `# Compile-Time Computation (\`constexpr\`)
-
-Kata kunci \`constexpr\` memberitahu compiler bahwa suatu nilai atau fungsi dapat dievaluasi pada saat **kompilasi**, bukan saat runtime!
-
-## Keuntungan:
-- Nol kalkulasi CPU saat aplikasi berjalan.
-- Hasil dapat digunakan sebagai ukuran array statis atau template parameter.`,
-    defaultCode: `#include <iostream>
-
-constexpr int faktorial(int n) {
-    return (n <= 1) ? 1 : (n * faktorial(n - 1));
-}
-
-int main() {
-    // Dihitung langsung oleh compiler saat build
-    constexpr int hasil_5 = faktorial(5);
-    
-    std::cout << "Faktorial 5 (compile-time): " << hasil_5 << std::endl;
-    return 0;
-}`,
-    expectedOutput: "Faktorial 5 (compile-time): 120",
-    hint: "Fungsi constexpr harus dapat dievaluasi tanpa efek samping I/O saat compile-time.",
-    quiz: {
-      question: "Apa manfaat utama mengevaluasi fungsi dengan 'constexpr' di C++?",
-      options: [
-        "Kalkulasi dijalankan saat kompilasi sehingga menghilangkan beban komputasi CPU di runtime",
-        "Fungsi otomatis berjalan secara multi-threading",
-        "Fungsi dapat mengakses database secara langsung",
-        "Mencegah fungsi dipanggil lebih dari 1 kali"
+    "id": 3,
+    "slug": "cpp-lesson-3",
+    "title": "3. Operator, Precedence, dan Short-Circuit",
+    "module": "Fondasi C++ Modern dan Tooling",
+    "moduleId": 1,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Operator, Precedence, dan Short-Circuit\n\n### Materi Inti:\n- Operator arithmetic, comparison, logical, conditional, dan assignment.\n- Precedence, associativity, dan pentingnya parentheses.\n- Short-circuit evaluation pada `&&` dan `||`.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Operator, Precedence, dan Short-Circuit\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa hasil `false && (1 / 0)` dan mengapa?",
+      "options": [
+        "`false`; operand kanan tidak dieksekusi karena short-circuit.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "constexpr memindahkan beban eksekusi dari runtime ke compile-time, menghasilkan nilai konstanta langsung di binary."
+      "answer": 0,
+      "explanation": "`&&` berhenti setelah operand pertama diketahui false."
     }
   },
   {
-    id: 4,
-    slug: "kontrol-alur-dan-structured-binding",
-    title: "4. Structured Binding & Init Statement",
-    module: "Fondasi Modern C++",
-    moduleId: 1,
-    duration: "20 m",
-    level: "Pemula",
-    content: `# Structured Binding (C++17) & If Init
-
-C++17 memperkenalkan sintaks dekonstruksi tuple/pair/struct yang sangat elegan:
-\`\`\`cpp
-auto [x, y] = titik;
-\`\`\`
-
-Dan inisialisasi di dalam statement \`if\`:
-\`\`\`cpp
-if (auto val = hitung(); val > 0) {
-    // Scope val terbatas di dalam blok if
-}
-\`\`\``,
-    defaultCode: `#include <iostream>
-#include <tuple>
-
-std::pair<int, std::string> getUser() {
-    return {42, "Syamsul"};
-}
-
-int main() {
-    // Structured binding
-    auto [id, nama] = getUser();
-    std::cout << "ID: " << id << ", Nama: " << nama << std::endl;
-    
-    // If dengan init-statement
-    if (auto status = true; status) {
-        std::cout << "Status akun aktif!" << std::endl;
-    }
-    return 0;
-}`,
-    expectedOutput: "ID: 42, Nama: Syamsul\nStatus akun aktif!",
-    hint: "Gunakan auto [a, b] = pair_or_tuple; untuk mendekomposisi nilai.",
-    quiz: {
-      question: "Apa keunggulan penggunaan 'if (init_statement; condition)' di C++17?",
-      options: [
-        "Membatasi scope variabel helper hanya di dalam blok if/else terkait, menjaga kebersihan scope global",
-        "Membuat kondisi if selalu bernilai true",
-        "Menggantikan seluruh perulangan while",
-        "Menghilangkan kewajiban menggunakan tanda kurung kurawal"
+    "id": 4,
+    "slug": "cpp-lesson-4",
+    "title": "4. Kontrol Alur dan Loop",
+    "module": "Fondasi C++ Modern dan Tooling",
+    "moduleId": 1,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Kontrol Alur dan Loop\n\n### Materi Inti:\n- `if`, `else`, `switch`, dan equality/comparison.\n- For loop, range-based for, break, continue, dan early return.\n- Menulis kondisi yang mudah diuji dan tidak ambigu.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Kontrol Alur dan Loop\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Pada `for (int x : v)`, apakah mengubah `x` mengubah elemen `v`?",
+      "options": [
+        "Tidak; `x` adalah salinan elemen.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "Init-statement pada if membatasi masa hidup variabel sementara hanya di dalam blok evaluasi tersebut, mencegah polusi scope."
+      "answer": 0,
+      "explanation": "Range-based for dengan tipe biasa membuat salinan nilai."
     }
   },
   {
-    id: 5,
-    slug: "pointer-dan-referensi",
-    title: "5. Pointer vs Reference & Alamat Memori",
-    module: "Pointer & Memori",
-    moduleId: 2,
-    duration: "25 m",
-    level: "Menengah",
-    content: `# Pointer vs Referensi
-
-Memori di C++ dapat diakses secara langsung:
-- **Pointer (\`T*\`):** Variabel yang menyimpan alamat memori objek lain. Bisa bernilai \`nullptr\` dan dapat di-reassign.
-- **Reference (\`T&\`):** Alias permanen untuk objek yang sudah ada. Tidak bisa null dan tidak bisa di-rebind.
-
-\`\`\`cpp
-int val = 10;
-int* ptr = &val;  // ptr menyimpan alamat memori val
-int& ref = val;   // ref adalah alias dari val
-\`\`\``,
-    defaultCode: `#include <iostream>
-
-void kaliDua(int& n) {
-    n *= 2; // Memodifikasi variabel asli lewat referensi
-}
-
-int main() {
-    int angka = 25;
-    int* p = &angka;
-    
-    std::cout << "Nilai awal: " << angka << std::endl;
-    std::cout << "Alamat memori: " << p << std::endl;
-    
-    kaliDua(angka);
-    std::cout << "Setelah kaliDua: " << angka << std::endl;
-    return 0;
-}`,
-    expectedOutput: "Nilai awal: 25\nSetelah kaliDua: 50",
-    hint: "Gunakan pass-by-reference (int& n) untuk memodifikasi parameter tanpa menyalin data.",
-    quiz: {
-      question: "Manakah perbedaan krusial antara Pointer (T*) dan Referensi (T&) di C++?",
-      options: [
-        "Referensi wajib diinisialisasi saat dibuat dan tidak bisa null/re-bound, sedangkan pointer dapat bernilai nullptr dan diubah alamatnya",
-        "Pointer dialokasikan di ROM, referensi di RAM",
-        "Referensi hanya untuk tipe string",
-        "Tidak ada perbedaan sama sekali"
+    "id": 5,
+    "slug": "cpp-lesson-5",
+    "title": "5. Fungsi, Parameter, Overload, dan `constexpr`",
+    "module": "Fondasi C++ Modern dan Tooling",
+    "moduleId": 1,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Fungsi, Parameter, Overload, dan `constexpr`\n\n### Materi Inti:\n- Declaration, definition, return type, dan parameter passing.\n- Pass by value, pass by reference, default arguments, dan overload resolution.\n- Fungsi `constexpr` untuk kalkulasi compile-time.",
+    "code": "// C++ C++11/C++14\n#include <iostream>\n\nint main() {\n    std::cout << \"Fungsi, Parameter, Overload, dan `constexpr`\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa keuntungan parameter `const T&` untuk objek besar?",
+      "options": [
+        "Menghindari salinan dan menjamin fungsi tidak mengubah objek.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "Referensi adalah alias wajib-valid yang tidak dapat bernilai null dan terikat permanen ke objek aslinya."
+      "answer": 0,
+      "explanation": "Reference menghindari copy, sedangkan `const` mengekspresikan tidak adanya modifikasi."
     }
   },
   {
-    id: 6,
-    slug: "stack-vs-heap-memory",
-    title: "6. Manajemen Memori: Stack vs Heap",
-    module: "Pointer & Memori",
-    moduleId: 2,
-    duration: "25 m",
-    level: "Menengah",
-    content: `# Stack vs Heap
-
-- **Stack:** Alokasi otomatis super cepat (LIFO), ukuran terbatas, dihapus otomatis saat keluar dari fungsi.
-- **Heap (Dynamic):** Alokasi manual menggunakan \`new\` / \`delete\`, fleksibel, namun berisiko *Memory Leak* jika lupa di-free.`,
-    defaultCode: `#include <iostream>
-
-int main() {
-    // Alokasi di Stack
-    int stackVal = 100;
-    
-    // Alokasi di Heap (manual)
-    int* heapVal = new int(200);
-    
-    std::cout << "Stack value: " << stackVal << std::endl;
-    std::cout << "Heap value: " << *heapVal << std::endl;
-    
-    // Wajib delete untuk mencegah memory leak
-    delete heapVal;
-    heapVal = nullptr;
-    
-    return 0;
-}`,
-    expectedOutput: "Stack value: 100\nHeap value: 200",
-    hint: "Setiap pemanggilan 'new' harus diimbangi dengan 'delete'.",
-    quiz: {
-      question: "Apa konsekuensi fatal jika memori yang dialokasikan dengan operator 'new' tidak di-'delete'?",
-      options: [
-        "Terjadi Memory Leak di mana memori heap tetap terkunci dan tidak dapat digunakan hingga program selesai",
-        "Program akan otomatis melakukan reboot sistem",
-        "Compiler akan menghapus kode secara otomatis",
-        "Memori heap akan otomatis dikonversi menjadi stack"
+    "id": 6,
+    "slug": "cpp-lesson-6",
+    "title": "6. Header, Namespace, Debugging, dan Unit Test Mini",
+    "module": "Fondasi C++ Modern dan Tooling",
+    "moduleId": 1,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Header, Namespace, Debugging, dan Unit Test Mini\n\n### Materi Inti:\n- Pemisahan `.h` dan `.cpp`, include guard, dan `#pragma once`.\n- Namespace untuk menghindari nama global yang tabrakan.\n- Assertion, breakpoint, dan unit test sederhana.",
+    "code": "// C++ C++11/C++20\n#include <iostream>\n\nint main() {\n    std::cout << \"Header, Namespace, Debugging, dan Unit Test Mini\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Mengapa definisi fungsi non-inline sebaiknya tidak diletakkan di header?",
+      "options": [
+        "Dapat menyebabkan multiple definition saat linking.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "Tanpa delete, memori heap yang teralokasi tidak pernah dibebaskan, menyebabkan pemborosan RAM (Memory Leak)."
+      "answer": 0,
+      "explanation": "Header biasanya hanya berisi declaration; definisi ditempatkan di satu translation unit."
     }
   },
   {
-    id: 7,
-    slug: "smart-pointers-unique-shared",
-    title: "7. Smart Pointers (`unique_ptr` & `shared_ptr`)",
-    module: "Pointer & Memori",
-    moduleId: 2,
-    duration: "25 m",
-    level: "Menengah",
-    content: `# Modern Smart Pointers (\`<memory>\`)
-
-Di Modern C++, hindari raw \`new\`/\`delete\`. Gunakan **Smart Pointers**:
-1. **\`std::unique_ptr<T>\`:** Kepemilikan tunggal eksklusif. Otomatis menghapus memori saat keluar scope (*zero overhead*).
-2. **\`std::shared_ptr<T>\`:** Kepemilikan bersama dengan *Reference Counting*.
-3. **\`std::make_unique<T>()\`:** Cara teraman membuat unique pointer.`,
-    defaultCode: `#include <iostream>
-#include <memory>
-
-struct Entity {
-    std::string name;
-    Entity(std::string n) : name(n) { std::cout << "Entity " << name << " dibuat." << std::endl; }
-    ~Entity() { std::cout << "Entity " << name << " DIHAPUS otomatis!" << std::endl; }
-    void sapa() const { std::cout << "Halo dari " << name << std::endl; }
-};
-
-int main() {
-    {
-        // Otomatis dibebaskan saat scope berakhir
-        auto e = std::make_unique<Entity>("Hero");
-        e->sapa();
-    } // Entity Hero langsung di-destruct di sini
-    
-    std::cout << "Scope telah berakhir." << std::endl;
-    return 0;
-}`,
-    expectedOutput: "Entity Hero dibuat.\nHalo dari Hero\nEntity Hero DIHAPUS otomatis!\nScope telah berakhir.",
-    hint: "Gunakan std::make_unique<T>(args) untuk alokasi memori yang aman dari exception.",
-    quiz: {
-      question: "Mengapa std::unique_ptr lebih disarankan daripada raw pointer di Modern C++?",
-      options: [
-        "Karena menerapkan prinsip RAII yang secara otomatis membebaskan memori saat objek keluar scope tanpa overhead runtime tambahan",
-        "Karena unique_ptr berjalan lebih lambat dibanding Java GC",
-        "Karena unique_ptr hanya bisa digunakan di Linux",
-        "Karena unique_ptr mengubah nilai memori menjadi string"
+    "id": 7,
+    "slug": "cpp-lesson-7",
+    "title": "7. Initialization dan Object Lifetime",
+    "module": "Nilai, Referensi, dan Abstraksi Data",
+    "moduleId": 2,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Initialization dan Object Lifetime\n\n### Materi Inti:\n- Automatic, static, thread-local, dan local lifetime.\n- Value initialization, aggregate initialization, dan initializer list.\n- Urutan destruction ketika nested scope berakhir.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Initialization dan Object Lifetime\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Kapan objek automatic lokal dihancurkan?",
+      "options": [
+        "Ketika keluar dari scope-nya.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "unique_ptr membungkus raw pointer dengan semantik kepemilikan eksklusif dan memanggil destructor secara otomatis saat scope berakhir."
+      "answer": 0,
+      "explanation": "Destruction terjadi secara reverse order terhadap construction di scope yang sama."
     }
   },
   {
-    id: 8,
-    slug: "kelas-dan-prinsip-raii",
-    title: "8. Classes, Encapsulation, & Prinsip RAII",
-    module: "OOP & Prinsip RAII",
-    moduleId: 3,
-    duration: "25 m",
-    level: "Menengah",
-    content: `# Prinsip RAII (*Resource Acquisition Is Initialization*)
-
-RAII adalah pilar inti C++: **Resource diikat pada masa hidup (*lifetime*) sebuah objek**.
-- Alokasi resource dilakukan di **Constructor**.
-- Pelepasan resource (file handle, socket, mutex, memory) dilakukan di **Destructor** (\`~ClassName\`).`,
-    defaultCode: `#include <iostream>
-
-class AkunBank {
-private:
-    std::string pemilik;
-    double saldo;
-
-public:
-    AkunBank(std::string nama, double saldoAwal) 
-        : pemilik(nama), saldo(saldoAwal) {}
-
-    void deposit(double jumlah) {
-        if (jumlah > 0) saldo += jumlah;
-    }
-
-    void cetakInfo() const {
-        std::cout << "Pemilik: " << pemilik << " | Saldo: Rp " << saldo << std::endl;
-    }
-};
-
-int main() {
-    AkunBank akun("Syamsul", 500000);
-    akun.deposit(250000);
-    akun.cetakInfo();
-    return 0;
-}`,
-    expectedOutput: "Pemilik: Syamsul | Saldo: Rp 750000",
-    hint: "Gunakan member initializer list (: member(val)) di constructor.",
-    quiz: {
-      question: "Apa konsep inti dari pola desain RAII di C++?",
-      options: [
-        "Resource diakuisisi di constructor dan dijamin dilepaskan secara otomatis pada destructor saat objek keluar scope",
-        "Semua variabel harus bertipe public",
-        "Semua kode harus ditulis dalam satu file",
-        "Mencegah pembuatan class turunan"
+    "id": 8,
+    "slug": "cpp-lesson-8",
+    "title": "8. Pointer, Reference, dan Address",
+    "module": "Nilai, Referensi, dan Abstraksi Data",
+    "moduleId": 2,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Pointer, Reference, dan Address\n\n### Materi Inti:\n- Pointer nullable, reference wajib terinisialisasi, dan pointer arithmetic.\n- Lvalue reference versus rvalue reference.\n- Perbedaan address-of, pointer, dan lifetime.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Pointer, Reference, dan Address\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apakah reference dapat di-reseat setelah inisialisasi?",
+      "options": [
+        "Tidak.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "RAII memastikan resource leak tidak terjadi meskipun kode melempar exception, karena stack unwinding akan mengeksekusi destructor."
+      "answer": 0,
+      "explanation": "Reference adalah alias sejak dibuat dan tidak dapat diarahkan ke objek lain."
     }
   },
   {
-    id: 9,
-    slug: "inheritance-dan-polymorphism",
-    title: "9. Inheritance & Virtual Polymorphism",
-    module: "OOP & Prinsip RAII",
-    moduleId: 3,
-    duration: "25 m",
-    level: "Menengah",
-    content: `# Virtual Functions & Polymorphism
-
-Untuk mencapai dynamic polymorphism di C++:
-1. Tandai method dengan keyword \`virtual\`.
-2. Gunakan kata kunci \`override\` pada subclass untuk keamanan kompilasi.
-3. Selalu buat **Virtual Destructor** (\`virtual ~Base() = default;\`) pada base class!`,
-    defaultCode: `#include <iostream>
-#include <vector>
-#include <memory>
-
-class Bentuk {
-public:
-    virtual void gambar() const = 0; // Pure virtual function (Interface)
-    virtual ~Bentuk() = default;     // Virtual destructor wajib!
-};
-
-class Lingkaran : public Bentuk {
-public:
-    void gambar() const override { std::cout << "Menggambar Lingkaran 🔵" << std::endl; }
-};
-
-class Kotak : public Bentuk {
-public:
-    void gambar() const override { std::cout << "Menggambar Kotak 🟩" << std::endl; }
-};
-
-int main() {
-    std::vector<std::unique_ptr<Bentuk>> daftar;
-    daftar.push_back(std::make_unique<Lingkaran>());
-    daftar.push_back(std::make_unique<Kotak>());
-
-    for (const auto& b : daftar) {
-        b->gambar();
-    }
-    return 0;
-}`,
-    expectedOutput: "Menggambar Lingkaran 🔵\nMenggambar Kotak 🟩",
-    hint: "Metode '= 0' menandai pure virtual method yang wajib di-override subclass.",
-    quiz: {
-      question: "Mengapa sebuah Base Class polymorphic WAJIB memiliki Virtual Destructor ('virtual ~Base() = default;')?",
-      options: [
-        "Agar saat objek dihapus melalui base pointer (delete base_ptr), destructor subclass yang benar ikut dieksekusi",
-        "Agar class tidak bisa di-inherit oleh class lain",
-        "Untuk mematikan virtual method table (vtable)",
-        "Agar objek tidak bisa disalin"
+    "id": 9,
+    "slug": "cpp-lesson-9",
+    "title": "9. Struct, Class, dan Invariant",
+    "module": "Nilai, Referensi, dan Abstraksi Data",
+    "moduleId": 2,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Struct, Class, dan Invariant\n\n### Materi Inti:\n- Data members, member functions, access control, dan encapsulation.\n- Membangun invariant seperti `balance >= 0`.\n- Memisahkan interface publik dari implementasi internal.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Struct, Class, dan Invariant\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa access default untuk anggota `class`?",
+      "options": [
+        "`private`.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "Jika destructor base class bukan virtual, menghapus derived object via base pointer memicu undefined behavior karena destructor derived tidak terpanggil."
+      "answer": 0,
+      "explanation": "`struct` menggunakan `public` sebagai default, sedangkan `class` menggunakan `private`."
     }
   },
   {
-    id: 10,
-    slug: "operator-overloading",
-    title: "10. Operator Overloading & User-Defined Types",
-    module: "OOP & Prinsip RAII",
-    moduleId: 3,
-    duration: "20 m",
-    level: "Menengah",
-    content: `# Operator Overloading
-
-C++ mengizinkan kita mendefinisikan ulang cara operator (seperti \`+\`, \`==\`, \`<<\`) bekerja pada objek kustom kita agar sintaksnya natural seperti tipe primitif.`,
-    defaultCode: `#include <iostream>
-
-struct Vektor2D {
-    float x, y;
-
-    // Operator + overloading
-    Vektor2D operator+(const Vektor2D& other) const {
-        return {x + other.x, y + other.y};
-    }
-};
-
-int main() {
-    Vektor2D v1{1.5f, 2.0f};
-    Vektor2D v2{3.0f, 4.5f};
-    Vektor2D v3 = v1 + v2;
-
-    std::cout << "Hasil penjumlahan: (" << v3.x << ", " << v3.y << ")" << std::endl;
-    return 0;
-}`,
-    expectedOutput: "Hasil penjumlahan: (4.5, 6.5)",
-    hint: "Sintaks overloading: ReturnType operator+(const Type& other) const;",
-    quiz: {
-      question: "Operator apa di C++20 yang dikenal sebagai 'Three-Way Comparison Operator' (Spaceship Operator)?",
-      options: [
-        "<=>",
-        "===",
-        "=><=",
-        "-->"
+    "id": 10,
+    "slug": "cpp-lesson-10",
+    "title": "10. Const Correctness dan Value Semantics",
+    "module": "Nilai, Referensi, dan Abstraksi Data",
+    "moduleId": 2,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Const Correctness dan Value Semantics\n\n### Materi Inti:\n- Const object, const member function, dan pass-by-const-reference.\n- Value semantics versus reference semantics.\n- Kapan `mutable` boleh digunakan dan mengapa harus hati-hati.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Const Correctness dan Value Semantics\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Bisakah non-const member function dipanggil pada const object?",
+      "options": [
+        "Tidak, kecuali member tersebut dinyatakan `mutable`.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "Operator <=> di C++20 menghasilkan perbandingan terurut kuat/lemah (strong_ordering) secara otomatis untuk seluruh operator relational (<, <=, ==, !=, >=, >)."
+      "answer": 0,
+      "explanation": "`const` member function menjamin objek tidak dimodifikasi secara logis."
     }
   },
   {
-    id: 11,
-    slug: "stl-vector-dan-array",
-    title: "11. STL Sequential Containers (`vector` & `array`)",
-    module: "STL & Generic Programming",
-    moduleId: 4,
-    duration: "25 m",
-    level: "Menengah",
-    content: `# Standard Template Library (STL)
-
-- **\`std::vector<T>\`:** Dynamic contiguous array paling sering dipakai di C++ (alokasi di heap, grow otomatis).
-- **\`std::array<T, N>\`:** Fixed-size stack array dengan interface STL aman (*zero-cost*).`,
-    defaultCode: `#include <iostream>
-#include <vector>
-#include <numeric>
-
-int main() {
-    std::vector<int> nums = {10, 20, 30, 40, 50};
-    nums.push_back(60);
-
-    std::cout << "Ukuran vector: " << nums.size() << std::endl;
-    std::cout << "Kapasitas vector: " << nums.capacity() << std::endl;
-
-    // Range-based for loop
-    std::cout << "Isi elemen: ";
-    for (int n : nums) {
-        std::cout << n << " ";
-    }
-    std::cout << std::endl;
-    return 0;
-}`,
-    expectedOutput: "Ukuran vector: 6\nIsi elemen: 10 20 30 40 50 60 ",
-    hint: "Gunakan .reserve() jika Anda sudah mengetahui estimasi ukuran vector sebelumnya.",
-    quiz: {
-      question: "Apa perbedaan antara metode vector .size() dan .capacity() di C++?",
-      options: [
-        "size() adalah jumlah elemen aktual saat ini, capacity() adalah jumlah elemen yang dapat ditampung sebelum alokasi ulang memori terjadi",
-        "size() disimpan di stack, capacity() di disk",
-        "Keduanya selalu bernilai persis sama",
-        "capacity() hanya untuk string"
+    "id": 11,
+    "slug": "cpp-lesson-11",
+    "title": "11. `std::string`, `std::string_view`, dan `std::span`",
+    "module": "Nilai, Referensi, dan Abstraksi Data",
+    "moduleId": 2,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# `std::string`, `std::string_view`, dan `std::span`\n\n### Materi Inti:\n- `std::string` memiliki data; `string_view` adalah view non-owning.\n- `std::span` menyediakan view atas contiguous storage.\n- Lifetime hazard, dangling view, dan pemilihan interface yang benar.",
+    "code": "// C++ C++17/C++20\n#include <iostream>\n\nint main() {\n    std::cout << \"`std::string`, `std::string_view`, dan `std::span`\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa risiko `string_view` yang menunjuk temporary string?",
+      "options": [
+        "Dangling pointer dan undefined behavior setelah temporary hancur.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "Vector mengalokasikan buffer berlebih (capacity) agar operasi push_back rata-rata berkecepatan O(1) Amortized."
+      "answer": 0,
+      "explanation": "`string_view` tidak meningkatkan reference count atau memiliki data."
     }
   },
   {
-    id: 12,
-    slug: "stl-map-dan-unordered-map",
-    title: "12. Associative Containers (`map` vs `unordered_map`)",
-    module: "STL & Generic Programming",
-    moduleId: 4,
-    duration: "25 m",
-    level: "Menengah",
-    content: `# Associative Containers
-
-1. **\`std::map<K, V>\`:** Red-Black Tree (terurut berdasar key, pencarian $O(\log N)$).
-2. **\`std::unordered_map<K, V>\`:** Hash Table (tidak terurut, pencarian rata-rata $O(1)$).`,
-    defaultCode: `#include <iostream>
-#include <unordered_map>
-
-int main() {
-    std::unordered_map<std::string, int> skor;
-    skor["Alice"] = 95;
-    skor["Bob"] = 88;
-    skor["Charlie"] = 92;
-
-    // Akses aman dengan .find()
-    if (auto it = skor.find("Alice"); it != skor.end()) {
-        std::cout << "Skor Alice: " << it->second << std::endl;
-    }
-
-    std::cout << "Total peserta: " << skor.size() << std::endl;
-    return 0;
-}`,
-    expectedOutput: "Skor Alice: 95\nTotal peserta: 3",
-    hint: "Gunakan .find() daripada operator [] jika tidak ingin otomatis membuat key baru jika belum ada.",
-    quiz: {
-      question: "Mengapa std::unordered_map umumnya lebih cepat daripada std::map untuk operasi lookup?",
-      options: [
-        "Karena unordered_map menggunakan struktur Hash Table dengan kompleksitas waktu rata-rata O(1), sedangkan map adalah Balanced Tree O(log N)",
-        "Karena unordered_map tidak menggunakan memori heap",
-        "Karena map hanya boleh berisi integer",
-        "Karena unordered_map dikompilasi secara asinkron"
+    "id": 12,
+    "slug": "cpp-lesson-12",
+    "title": "12. RAII dan Penanganan Exception",
+    "module": "Nilai, Referensi, dan Abstraksi Data",
+    "moduleId": 2,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# RAII dan Penanganan Exception\n\n### Materi Inti:\n- Resource Acquisition Is Initialization sebagai pola utama ownership.\n- Stack unwinding dan destruction saat exception dilempar.\n- Menulis destructor yang tidak me-lempar exception.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"RAII dan Penanganan Exception\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa peran RAII?",
+      "options": [
+        "Mengikat kepemilikan resource dengan lifetime objek.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "Hash table pada unordered_map memberikan akses rata-rata O(1), sedangkan Red-Black Tree pada std::map selalu O(log N)."
+      "answer": 0,
+      "explanation": "Resource dibebaskan otomatis ketika objek RAII keluar dari scope."
     }
   },
   {
-    id: 13,
-    slug: "templates-dan-generic",
-    title: "13. Function & Class Templates",
-    module: "STL & Generic Programming",
-    moduleId: 4,
-    duration: "25 m",
-    level: "Menengah",
-    content: `# Template Programming
-
-Template memungkinkan penulisan fungsi dan class generik yang bekerja untuk berbagai tipe data secara *type-safe* tanpa overhead runtime (*Zero-Cost*).`,
-    defaultCode: `#include <iostream>
-
-// Function Template
-template <typename T>
-T maks(T a, T b) {
-    return (a > b) ? a : b;
-}
-
-int main() {
-    std::cout << "Maks int: " << maks(10, 25) << std::endl;
-    std::cout << "Maks float: " << maks(3.14f, 2.71f) << std::endl;
-    std::cout << "Maks string: " << maks(std::string("Rust"), std::string("C++")) << std::endl;
-    return 0;
-}`,
-    expectedOutput: "Maks int: 25\nMaks float: 3.14\nMaks string: Rust",
-    hint: "Gunakan template <typename T> sebelum deklarasi fungsi atau class.",
-    quiz: {
-      question: "Kapan kode implementasi dari sebuah Template C++ di-generate oleh compiler?",
-      options: [
-        "Saat kompilasi (instansiasi) untuk setiap tipe data konkret yang benar-benar digunakan",
-        "Saat program pertama kali di-boot di runtime",
-        "Hanya saat program melempar exception",
-        "Template tidak pernah di-generate menjadi kode biner"
+    "id": 13,
+    "slug": "cpp-lesson-13",
+    "title": "13. Constructor, Destructor, dan Initializer List",
+    "module": "Object-Oriented C++ dan Polymorphism",
+    "moduleId": 3,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Constructor, Destructor, dan Initializer List\n\n### Materi Inti:\n- Default, parameterized, copy, dan destructor.\n- Initializer list untuk konstruk anggota.\n- Urutan construction dan destruction.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Constructor, Destructor, dan Initializer List\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Mengapa initializer list lebih disukai untuk menginisialisasi anggota?",
+      "options": [
+        "Menghindari default construction lalu assignment.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "Proses instansiasi template menduplikasi fungsi/class untuk setiap tipe konkret saat kompilasi tanpa dynamic dispatch runtime."
+      "answer": 0,
+      "explanation": "Anggota langsung dibentuk dengan nilai akhir sejak awal."
     }
   },
   {
-    id: 14,
-    slug: "stl-algorithms-dan-lambdas",
-    title: "14. STL Algorithms & Lambda Expressions",
-    module: "STL & Generic Programming",
-    moduleId: 4,
-    duration: "25 m",
-    level: "Menengah",
-    content: `# STL Algorithms & Lambdas
-
-Header \`<algorithm>\` menyediakan lebih dari 100 fungsi siap pakai (\`std::sort\`, \`std::transform\`, \`std::find_if\`).
-
-## Sintaks Lambda C++:
-\`\`\`cpp
-[captures](parameters) -> return_type { body }
-\`\`\``,
-    defaultCode: `#include <iostream>
-#include <vector>
-#include <algorithm>
-
-int main() {
-    std::vector<int> data = {5, 2, 8, 1, 9, 3};
-
-    // Sort descending dengan lambda
-    std::sort(data.begin(), data.end(), [](int a, int b) {
-        return a > b;
-    });
-
-    std::cout << "Sorted: ";
-    for (int n : data) std::cout << n << " ";
-    std::cout << std::endl;
-    return 0;
-}`,
-    expectedOutput: "Sorted: 9 8 5 3 2 1 ",
-    hint: "Klausul [] pada lambda menentukan variabel mana yang ditangkap dari scope terluar.",
-    quiz: {
-      question: "Apa arti klausa capture '[&]' pada lambda expression C++?",
-      options: [
-        "Menangkap semua variabel lokal dari enclosing scope sebagai referensi (by reference)",
-        "Menyalin seluruh variabel lokal sebagai nilai konstan (by value)",
-        "Menolak akses ke variabel lokal apapun",
-        "Mengubah lambda menjadi fungsi rekursif"
+    "id": 14,
+    "slug": "cpp-lesson-14",
+    "title": "14. Copy Semantics dan Rule of Three/Five",
+    "module": "Object-Oriented C++ dan Polymorphism",
+    "moduleId": 3,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Copy Semantics dan Rule of Three/Five\n\n### Materi Inti:\n- Copy constructor, copy assignment, dan self-assignment.\n- Shallow copy versus deep copy.\n- Copy-and-swap serta kapan menerapkan rule of five.",
+    "code": "// C++ C++11/C++14\n#include <iostream>\n\nint main() {\n    std::cout << \"Copy Semantics dan Rule of Three/Five\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa perbedaan copy constructor dan copy assignment?",
+      "options": [
+        "Copy constructor membentuk objek baru; assignment mengganti\u72b6\u6001 objek yang sudah ada.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "[&] menangkap semua variabel scope sekitar by reference, sedangkan [=] menangkapnya by value (copy)."
+      "answer": 0,
+      "explanation": "Keduanya perlu ditangani jika kelas memiliki resource yang harus dimiliki."
     }
   },
   {
-    id: 15,
-    slug: "move-semantics-dan-rvalue",
-    title: "15. Move Semantics & Rvalue References (`T&&`)",
-    module: "Fitur Modern C++20",
-    moduleId: 5,
-    duration: "25 m",
-    level: "Lanjutan",
-    content: `# Move Semantics (C++11)
-
-Move semantics mengeliminasi proses *deep copy* yang mahal dengan cara **memindahkan kepemilikan pointer buffer internal** dari objek temporer (*rvalue*) ke objek baru via \`std::move\`.`,
-    defaultCode: `#include <iostream>
-#include <vector>
-#include <utility>
-
-int main() {
-    std::vector<std::string> v1 = {"Data1", "Data2", "Data3"};
-    
-    // Pindahkan kepemilikan buffer v1 ke v2 tanpa copy
-    std::vector<std::string> v2 = std::move(v1);
-
-    std::cout << "Ukuran v2 setelah move: " << v2.size() << std::endl;
-    std::cout << "Ukuran v1 setelah dikosongkan: " << v1.size() << std::endl;
-    return 0;
-}`,
-    expectedOutput: "Ukuran v2 setelah move: 3\nUkuran v1 setelah dikosongkan: 0",
-    hint: "Gunakan std::move(obj) untuk melakukan cast objek menjadi rvalue reference.",
-    quiz: {
-      question: "Apa yang sebenarnya dilakukan oleh fungsi std::move(x) di C++?",
-      options: [
-        "Melakukan static cast x menjadi rvalue reference (T&&) sehingga constructor/assignment move dapat dipanggil",
-        "Memindahkan data langsung di level assembly hardware",
-        "Menghapus variabel x dari memori secara seketika",
-        "Menggandakan seluruh memori heap x"
+    "id": 15,
+    "slug": "cpp-lesson-15",
+    "title": "15. Operator Overloading",
+    "module": "Object-Oriented C++ dan Polymorphism",
+    "moduleId": 3,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Operator Overloading\n\n### Materi Inti:\n- Operator arithmetic, comparison, assignment, dan stream.\n- Member operator versus non-member/friend operator.\n- Implicit conversion dan bahaya operator yang mengejutkan.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Operator Overloading\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Operator mana yang secara umum lebih tepat menjadi non-member?",
+      "options": [
+        "Operator simetris seperti `+`, `==`, dan `<<`.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "std::move tidak memindahkan data sendiri; ia hanya meng-cast ekspresi menjadi rvalue (T&&) agar Move Constructor terpilih daripada Copy Constructor."
+      "answer": 0,
+      "explanation": "Non-member memungkinkan implicit conversion pada operand kiri."
     }
   },
   {
-    id: 16,
-    slug: "cpp20-concepts-dan-requires",
-    title: "16. C++20 Concepts & Constraints (`requires`)",
-    module: "Fitur Modern C++20",
-    moduleId: 5,
-    duration: "25 m",
-    level: "Lanjutan",
-    content: `# C++20 Concepts
-
-**Concepts** adalah fitur revolusioner di C++20 untuk memberikan batasan tipe (*type constraints*) pada template saat kompilasi, menghasilkan pesan error yang sangat mudah dibaca.`,
-    defaultCode: `#include <iostream>
-#include <concepts>
-
-// Mendefinisikan constraint: hanya tipe angka
-template <typename T>
-requires std::integral<T> || std::floating_point<T>
-T kuadrat(T x) {
-    return x * x;
-}
-
-int main() {
-    std::cout << "Kuadrat integer: " << kuadrat(7) << std::endl;
-    std::cout << "Kuadrat float: " << kuadrat(2.5) << std::endl;
-    // kuadrat("teks"); // Compiler error jelas & manusiawi!
-    return 0;
-}`,
-    expectedOutput: "Kuadrat integer: 49\nKuadrat float: 6.25",
-    hint: "Gunakan requires std::integral<T> untuk membatasi tipe template pada tipe integer.",
-    quiz: {
-      question: "Apa manfaat utama fitur Concepts di C++20 dibandingkan SFINAE/std::enable_if lama?",
-      options: [
-        "Sintaks deklaratif yang jauh lebih bersih dan menghasilkan pesan error compiler yang presisi dan mudah dipahami",
-        "Mempercepat waktu booting OS",
-        "Membuat template berjalan secara interpreted",
-        "Menghilangkan tipe boolean dari C++"
+    "id": 16,
+    "slug": "cpp-lesson-16",
+    "title": "16. Inheritance dan Virtual Dispatch",
+    "module": "Object-Oriented C++ dan Polymorphism",
+    "moduleId": 3,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Inheritance dan Virtual Dispatch\n\n### Materi Inti:\n- Base/derived relationship dan is-a semantics.\n- Virtual function, override, dan dynamic dispatch.\n- Virtual destructor pada base polymorphic.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Inheritance dan Virtual Dispatch\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa yang terjadi jika base pointer memanggil virtual function overridden di derived?",
+      "options": [
+        "Dynamic dispatch memilih override derived.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "Concepts menggantikan trik SFINAE yang rumit dengan ekspresi tipe compile-time eksplisit yang memberikan pesan error ramah developer."
+      "answer": 0,
+      "explanation": "Virtual dispatch dipilih berdasarkan tipe objektif pada runtime."
     }
   },
   {
-    id: 17,
-    slug: "cpp20-ranges-dan-views",
-    title: "17. C++20 Ranges & Pipeline Views",
-    module: "Fitur Modern C++20",
-    moduleId: 5,
-    duration: "25 m",
-    level: "Lanjutan",
-    content: `# C++20 Ranges (\`<ranges>\`)
-
-Ranges memungkinkan algoritma STL digabungkan secara fungsional menggunakan pipe operator (\`|\`) secara **lazy** tanpa membuat salinan container sementara.`,
-    defaultCode: `#include <iostream>
-#include <vector>
-#include <ranges>
-
-int main() {
-    std::vector<int> angka = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
-    // Filter genap -> kuadratkan dengan pipeline |
-    auto genap_kuadrat = angka 
-        | std::views::filter([](int n) { return n % 2 == 0; })
-        | std::views::transform([](int n) { return n * n; });
-
-    std::cout << "Hasil pipeline ranges: ";
-    for (int n : genap_kuadrat) {
-        std::cout << n << " ";
-    }
-    std::cout << std::endl;
-    return 0;
-}`,
-    expectedOutput: "Hasil pipeline ranges: 4 16 36 64 100 ",
-    hint: "Gunakan std::views::filter dan std::views::transform disambung dengan operator |.",
-    quiz: {
-      question: "Mengapa pipeline std::views di C++20 Ranges bersifat sangat efisien?",
-      options: [
-        "Karena beroperasi secara Lazy Evaluation (on-demand) tanpa mengalokasikan container intermediate baru",
-        "Karena data otomatis di-upload ke GPU",
-        "Karena tidak menggunakan loop sama sekali",
-        "Karena hanya mengevaluasi elemen pertama"
+    "id": 17,
+    "slug": "cpp-lesson-17",
+    "title": "17. Interface Abstrak dan Polymorphic Design",
+    "module": "Object-Oriented C++ dan Polymorphism",
+    "moduleId": 3,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Interface Abstrak dan Polymorphic Design\n\n### Materi Inti:\n- Pure virtual function dan abstract class.\n- Interface sebagai kontrak, bukan implementasi yang bocor.\n- Polymorphic destruction dan prinsip substitusi.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Interface Abstrak dan Polymorphic Design\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa arti pure virtual function `virtual void draw() = 0;`?",
+      "options": [
+        "Class abstrak mewajibkan derived class menyediakan implementasi.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "std::views tidak membuat vector salinan baru di setiap tahap, melainkan mengevaluasi elemen satu per satu saat diiterasi."
+      "answer": 0,
+      "explanation": "Function murni tidak memiliki body pada base class."
     }
   },
   {
-    id: 18,
-    slug: "concurrency-threads-dan-jthread",
-    title: "18. Concurrency: `std::jthread` & Mutex",
-    module: "Fitur Modern C++20",
-    moduleId: 5,
-    duration: "25 m",
-    level: "Lanjutan",
-    content: `# Modern Concurrency (\`std::jthread\`)
-
-C++20 memperkenalkan **\`std::jthread\`** (Joinable Thread):
-- Otomatis memanggil \`.join()\` di destructor saat keluar scope (*RAII-compliant*).
-- Mendukung cooperative cancellation token via \`std::stop_token\`.
-- Sinkronisasi thread aman menggunakan \`std::mutex\` dan \`std::lock_guard\`.`,
-    defaultCode: `#include <iostream>
-#include <thread>
-#include <mutex>
-#include <vector>
-
-std::mutex mtx;
-int counter = 0;
-
-void kerja(int id) {
-    std::lock_guard<std::mutex> lock(mtx);
-    counter += 10;
-    std::cout << "Thread " << id << " selesai. Counter: " << counter << std::endl;
-}
-
-int main() {
-    {
-        // jthread otomatis join di akhir scope
-        std::jthread t1(kerja, 1);
-        std::jthread t2(kerja, 2);
-    }
-    std::cout << "Semua thread telah selesai secara sinkron." << std::endl;
-    return 0;
-}`,
-    expectedOutput: "Semua thread telah selesai secara sinkron.",
-    hint: "Gunakan std::lock_guard<std::mutex> untuk mengunci mutex secara aman.",
-    quiz: {
-      question: "Apa keunggulan utama std::jthread di C++20 dibandingkan std::thread lama?",
-      options: [
-        "jthread otomatis melakukan join() di destructor dan mendukung cooperative cancellation token",
-        "jthread tidak memerlukan sistem operasi multi-tasking",
-        "jthread menghapus kebutuhan akan mutex",
-        "jthread berjalan di memori stack saja"
+    "id": 18,
+    "slug": "cpp-lesson-18",
+    "title": "18. Composition, Policy, dan CRTP",
+    "module": "Object-Oriented C++ dan Polymorphism",
+    "moduleId": 3,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Composition, Policy, dan CRTP\n\n### Materi Inti:\n- Composition over inheritance dan dependency injection.\n- Policy-based design untuk memilih perilaku compile-time.\n- CRTP sebagai static polymorphism.",
+    "code": "// C++ C++11/C++14\n#include <iostream>\n\nint main() {\n    std::cout << \"Composition, Policy, dan CRTP\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Kapan polymorphism CRTP diselesaikan?",
+      "options": [
+        "Pada compile-time.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "std::thread lama akan melempar std::terminate jika di-destruct sebelum di-join atau di-detach; std::jthread menyelesaikan masalah ini secara RAII otomatis."
+      "answer": 0,
+      "explanation": "CRTP menggunakan static dispatch dan tipe derived diketahui saat kompilasi."
     }
   },
   {
-    id: 19,
-    slug: "async-future-dan-promise",
-    title: "19. Asynchronous Tasks (`std::async` & `future`)",
-    module: "Fitur Modern C++20",
-    moduleId: 5,
-    duration: "20 m",
-    level: "Lanjutan",
-    content: `# Asynchronous Programming
-
-\`std::async\` mengeksekusi fungsi di background thread dan mengembalikan **\`std::future<T>\`** yang dapat kita tunggu nilainya menggunakan \`.get()\`.`,
-    defaultCode: `#include <iostream>
-#include <future>
-#include <chrono>
-
-int komputasiBerat(int x) {
-    return x * 42;
-}
-
-int main() {
-    // Jalankan async di thread terpisah
-    std::future<int> hasilAsync = std::async(std::launch::async, komputasiBerat, 10);
-
-    std::cout << "Thread utama tetap berjalan..." << std::endl;
-
-    // Ambil hasil saat siap
-    int nilai = hasilAsync.get();
-    std::cout << "Hasil komputasi: " << nilai << std::endl;
-    return 0;
-}`,
-    expectedOutput: "Thread utama tetap berjalan...\nHasil komputasi: 420",
-    hint: "Pemanggilan future.get() akan memblokir thread hingga hasil siap dan hanya dapat dipanggil satu kali.",
-    quiz: {
-      question: "Apa yang terjadi saat method .get() dipanggil pada objek std::future?",
-      options: [
-        "Thread pemanggil akan menunggu (blocking) hingga task selesai dan mengembalikan nilai hasilnya",
-        "Task akan dibatalkan seketika",
-        "Hasil dikembalikan sebagai string JSON",
-        "Program melempar exception otomatis"
+    "id": 19,
+    "slug": "cpp-lesson-19",
+    "title": "19. Function Templates dan Template Deduction",
+    "module": "Template dan Generic Programming",
+    "moduleId": 4,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Function Templates dan Template Deduction\n\n### Materi Inti:\n- Template parameter, deduction, dan explicit template arguments.\n- Overload resolution antara template dan non-template.\n- Pembatasan interface melalui requiremen operasi.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Function Templates dan Template Deduction\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa arti template sebagai family of functions?",
+      "options": [
+        "Compiler membuat instantiation khusus untuk setiap tipe yang digunakan.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: ".get() memblokir thread hingga nilai komputasi tersedia dan memindahkan return value ke pemanggil."
+      "answer": 0,
+      "explanation": "Template bukan function runtime generik tunggal."
     }
   },
   {
-    id: 20,
-    slug: "cpp20-modules-dan-arsitektur",
-    title: "20. C++20 Modules & Best Practices Arsitektur",
-    module: "Fitur Modern C++20",
-    moduleId: 5,
-    duration: "25 m",
-    level: "Lanjutan",
-    content: `# C++20 Modules & Arsitektur Modern
-
-C++20 menggantikan header file tradisional (\`#include\`) dengan **Modules** (\`import\`), melipatgandakan kecepatan kompilasi dan mengeliminasi bug makro polusi.
-
-## Ringkasan Praktik Terbaik C++ Modern:
-1. Utamakan **Stack** dan **RAII**.
-2. Pakai **Smart Pointers** (\`unique_ptr\`) alih-alih raw pointer.
-3. Gunakan **Pass-by-const-reference** (\`const T&\`) untuk objek non-primitif.
-4. Manfaatkan **Concepts** dan **Ranges** untuk kode ekspresif dan aman.`,
-    defaultCode: `#include <iostream>
-#include <string_view>
-
-// Best practice: string_view untuk parameter read-only zero-copy
-void tampilkanInfo(std::string_view label, int versi) {
-    std::cout << "Modern C++ Platform: " << label << " " << versi << std::endl;
-    std::cout << "Arsitektur siap untuk production high-throughput." << std::endl;
-}
-
-int main() {
-    tampilkanInfo("C++", 20);
-    return 0;
-}`,
-    expectedOutput: "Modern C++ Platform: C++ 20\nArsitektur siap untuk production high-throughput.",
-    hint: "Gunakan std::string_view untuk referensi string read-only yang efisien tanpa alokasi.",
-    quiz: {
-      question: "Mengapa std::string_view di C++17 sangat dianjurkan untuk parameter string read-only dibanding 'const std::string&'?",
-      options: [
-        "Karena string_view dapat menerima string literal, char*, dan std::string tanpa pernah memicu alokasi heap baru (zero-allocation)",
-        "Karena string_view otomatis mengenkripsi data",
-        "Karena string_view menghapus spasi otomatis",
-        "Karena string_view hanya berukuran 1 byte"
+    "id": 20,
+    "slug": "cpp-lesson-20",
+    "title": "20. Class Templates dan Instantiation",
+    "module": "Template dan Generic Programming",
+    "moduleId": 4,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Class Templates dan Instantiation\n\n### Materi Inti:\n- Class template, member definition, dan header placement.\n- Explicit instantiation versus implicit instantiation.\n- Contoh `Box<T>`, `Stack<T>`, dan `Optional<T>`.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Class Templates dan Instantiation\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apakah `Box<int>` dan `Box<double>` merupakan tipe yang sama?",
+      "options": [
+        "Tidak; keduanya instantiation berbeda.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
       ],
-      answer: 0,
-      explanation: "string_view adalah non-owning view yang terdiri dari pointer dan panjang karakter, menghindari pembuatan string temporer di heap."
+      "answer": 0,
+      "explanation": "Tipe template di-instantiation dengan argument tipe yang berbeda."
+    }
+  },
+  {
+    "id": 21,
+    "slug": "cpp-lesson-21",
+    "title": "21. Partial Specialization, Full Specialization, dan Traits",
+    "module": "Template dan Generic Programming",
+    "moduleId": 4,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Partial Specialization, Full Specialization, dan Traits\n\n### Materi Inti:\n- Partial specialization untuk keluarga tipe.\n- Full specialization untuk kasus sangat khusus.\n- Trait pattern dan `std::enable_if`.",
+    "code": "// C++ C++11/C++14\n#include <iostream>\n\nint main() {\n    std::cout << \"Partial Specialization, Full Specialization, dan Traits\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Partial specialization lebih sering digunakan pada jenis template apa?",
+      "options": [
+        "Class template.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Function template biasanya diselesaikan dengan overload; class template dapat memiliki partial specialization."
+    }
+  },
+  {
+    "id": 22,
+    "slug": "cpp-lesson-22",
+    "title": "22. Variadic Templates dan Fold Expression",
+    "module": "Template dan Generic Programming",
+    "moduleId": 4,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Variadic Templates dan Fold Expression\n\n### Materi Inti:\n- Parameter pack, pack expansion, dan recursion.\n- Fold expression untuk sum, product, dan logical operations.\n- Penggunaan `std::tuple` dan argument forwarding.",
+    "code": "// C++ C++11/C++17\n#include <iostream>\n\nint main() {\n    std::cout << \"Variadic Templates dan Fold Expression\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa fungsi `sizeof...(Ts)`?",
+      "options": [
+        "Mengembalikan jumlah elemen parameter pack.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Operator ellipsis pada ukuran menghitung jumlah template arguments."
+    }
+  },
+  {
+    "id": 23,
+    "slug": "cpp-lesson-23",
+    "title": "23. Compile-Time Programming dengan `constexpr` dan `consteval`",
+    "module": "Template dan Generic Programming",
+    "moduleId": 4,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Compile-Time Programming dengan `constexpr` dan `consteval`\n\n### Materi Inti:\n- `constexpr` function, literal type, dan compile-time evaluation.\n- `consteval` untuk\u5f3a\u5236 calculated at compile-time.\n- `if constexpr` untuk memilih code berdasarkan tipe.",
+    "code": "// C++ C++14/C++20\n#include <iostream>\n\nint main() {\n    std::cout << \"Compile-Time Programming dengan `constexpr` dan `consteval`\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa perbedaan `constexpr` dan `consteval`?",
+      "options": [
+        "`constexpr` boleh dieksekusi compile-time atau runtime; `consteval` harus compile-time.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "`consteval` memaksa evaluasi immediate function call."
+    }
+  },
+  {
+    "id": 24,
+    "slug": "cpp-lesson-24",
+    "title": "24. SFINAE, `requires`, dan Early Constraint",
+    "module": "Template dan Generic Programming",
+    "moduleId": 4,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# SFINAE, `requires`, dan Early Constraint\n\n### Materi Inti:\n- Substitution failure dan SFINAE.\n- `requires` expression dan constrained template.\n- Overload resolution serta diagnostic yang lebih jelas.",
+    "code": "// C++ C++11/C++20\n#include <iostream>\n\nint main() {\n    std::cout << \"SFINAE, `requires`, dan Early Constraint\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa yang terjadi pada candidate template yang gagal substitution?",
+      "options": [
+        "Candidate dihapus dari overload resolution.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Itu adalah prinsip SFINAE: failure during substitution is not a hard error."
+    }
+  },
+  {
+    "id": 25,
+    "slug": "cpp-lesson-25",
+    "title": "25. Ownership Model dan Raw Memory",
+    "module": "Ownership, Smart Pointer, dan Memory Management",
+    "moduleId": 5,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Ownership Model dan Raw Memory\n\n### Materi Inti:\n- Stack ownership versus heap ownership.\n- `new`, `new[]`, `delete`, dan `delete[]`.\n- Double free, leak, mismatched deallocation, dan undefined behavior.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Ownership Model dan Raw Memory\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Alokasi `new int[10]` harus dibebaskan dengan apa?",
+      "options": [
+        "`delete[]`.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Array dan non-array allocation memiliki mekanisme deallocation berbeda."
+    }
+  },
+  {
+    "id": 26,
+    "slug": "cpp-lesson-26",
+    "title": "26. `std::unique_ptr` dan Exclusive Ownership",
+    "module": "Ownership, Smart Pointer, dan Memory Management",
+    "moduleId": 5,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# `std::unique_ptr` dan Exclusive Ownership\n\n### Materi Inti:\n- Exclusive ownership dan move-only semantics.\n- Factory function seperti `std::make_unique`.\n- Custom deleter, array support, `reset`, dan `release`.",
+    "code": "// C++ C++11/C++14\n#include <iostream>\n\nint main() {\n    std::cout << \"`std::unique_ptr` dan Exclusive Ownership\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa hasil menyalin `unique_ptr`?",
+      "options": [
+        "Compile-time error.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "`unique_ptr` tidak memiliki copy operation untuk menjaga exclusive ownership."
+    }
+  },
+  {
+    "id": 27,
+    "slug": "cpp-lesson-27",
+    "title": "27. `std::shared_ptr` dan `std::weak_ptr`",
+    "module": "Ownership, Smart Pointer, dan Memory Management",
+    "moduleId": 5,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# `std::shared_ptr` dan `std::weak_ptr`\n\n### Materi Inti:\n- Shared ownership, control block, dan reference count.\n- `weak_ptr` untuk optional non-owning reference.\n- Cycle ownership dan penggunaan `lock()`.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"`std::shared_ptr` dan `std::weak_ptr`\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa hasil `weak_ptr::lock()` jika owner terakhir sudah hancur?",
+      "options": [
+        "Mengembalikan `shared_ptr` kosong.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "`weak_ptr` tidak mempertahankan lifetime object."
+    }
+  },
+  {
+    "id": 28,
+    "slug": "cpp-lesson-28",
+    "title": "28. Allocator-Aware Container dan `pmr`",
+    "module": "Ownership, Smart Pointer, dan Memory Management",
+    "moduleId": 5,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Allocator-Aware Container dan `pmr`\n\n### Materi Inti:\n- Allocator-aware container dan custom allocator.\n- `std::pmr::monotonic_buffer_resource` serta pool lifetime.\n- Allocation failure, pool boundary, dan cache locality.",
+    "code": "// C++ C++17\n#include <iostream>\n\nint main() {\n    std::cout << \"Allocator-Aware Container dan `pmr`\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Mengapa memory resource harus hidup lebih lama dari container yang menggunakannya?",
+      "options": [
+        "Container dapat melakukan allocation/deallocation selama lifetime-nya.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Menghancurkan resource lebih dulu menyebabkan dangling allocator."
+    }
+  },
+  {
+    "id": 29,
+    "slug": "cpp-lesson-29",
+    "title": "29. RAII Wrapper dan Safe Resource Patterns",
+    "module": "Ownership, Smart Pointer, dan Memory Management",
+    "moduleId": 5,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# RAII Wrapper dan Safe Resource Patterns\n\n### Materi Inti:\n- Wrapper untuk file, socket, mutex, dan heap resource.\n- `lock_guard` versus `unique_lock`.\n- Scope guard untuk cleanup lintas jalur exception.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"RAII Wrapper dan Safe Resource Patterns\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Kapan `std::lock_guard` melepaskan mutex?",
+      "options": [
+        "Ketika lock guard keluar dari scope.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Destruction lock guard memanggil unlock secara otomatis."
+    }
+  },
+  {
+    "id": 30,
+    "slug": "cpp-lesson-30",
+    "title": "30. Mendeteksi Memory Bug dengan Sanitizer",
+    "module": "Ownership, Smart Pointer, dan Memory Management",
+    "moduleId": 5,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Mendeteksi Memory Bug dengan Sanitizer\n\n### Materi Inti:\n- AddressSanitizer, UndefinedBehaviorSanitizer, dan Valgrind.\n- Dangling reference, use-after-free, overflow, dan out-of-bounds.\n- Menjalankan sanitizer di native dan WebAssembly.",
+    "code": "// C++ C++11/C++20\n#include <iostream>\n\nint main() {\n    std::cout << \"Mendeteksi Memory Bug dengan Sanitizer\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Mana yang melakukan bounds checking: `operator[]` atau `at()`?",
+      "options": [
+        "`at()`.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "`operator[]` tidak melakukan bounds check dan dapat menyebabkan undefined behavior."
+    }
+  },
+  {
+    "id": 31,
+    "slug": "cpp-lesson-31",
+    "title": "31. Value Category: Lvalue, Xvalue, dan Prvalue",
+    "module": "Move Semantics, STL, dan In-Place Construction",
+    "moduleId": 6,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Value Category: Lvalue, Xvalue, dan Prvalue\n\n### Materi Inti:\n- Lvalue, xvalue, prvalue, dan named rvalue reference.\n- `std::move` sebagai cast eksplisit.\n- Decay type dan array-to-pointer decay.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Value Category: Lvalue, Xvalue, dan Prvalue\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apakah named rvalue reference selalu berupa rvalue saat digunakan?",
+      "options": [
+        "Tidak; named rvalue reference adalah lvalue.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Nama objek tetap memiliki lvalue category meskipun tipe referensinya rvalue."
+    }
+  },
+  {
+    "id": 32,
+    "slug": "cpp-lesson-32",
+    "title": "32. Move Constructor dan Move Assignment",
+    "module": "Move Semantics, STL, dan In-Place Construction",
+    "moduleId": 6,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Move Constructor dan Move Assignment\n\n### Materi Inti:\n- Move operation untuk mengambil resource.\n- Source harus berada dalam valid tetapi unspecified state.\n- Move constructor idealnya `noexcept` agar container dapat memindahkan.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Move Constructor dan Move Assignment\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apakah move constructor selalu menghindari salinan?",
+      "options": [
+        "Tidak; dapat fallback ke copy atau melakukan salinan.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Move operation hanya memberi kesempatan untuk perpindahan; implementasinya tetap menentukan."
+    }
+  },
+  {
+    "id": 33,
+    "slug": "cpp-lesson-33",
+    "title": "33. Perfect Forwarding",
+    "module": "Move Semantics, STL, dan In-Place Construction",
+    "moduleId": 6,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Perfect Forwarding\n\n### Materi Inti:\n- Forwarding reference dan `auto&&`.\n- `std::forward<T>` untuk mempertahankan value category.\n- Argument unwrapping dengan `std::unwrap_reference`.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Perfect Forwarding\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa tujuan `std::forward<T>(t)`?",
+      "options": [
+        "Mempertahankan value category saat meneruskan argument.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Tanpa forward, argument dapat berubah menjadi lvalue."
+    }
+  },
+  {
+    "id": 34,
+    "slug": "cpp-lesson-34",
+    "title": "34. Copy Elision, NRVO, dan Guaranteed Move",
+    "module": "Move Semantics, STL, dan In-Place Construction",
+    "moduleId": 6,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Copy Elision, NRVO, dan Guaranteed Move\n\n### Materi Inti:\n- Copy elision dan Named Return Value Optimization.\n- Prvalue construction langsung ke result object.\n- `std::move` yang tidak perlu dapat menghambat copy elision.",
+    "code": "// C++ C++17\n#include <iostream>\n\nint main() {\n    std::cout << \"Copy Elision, NRVO, dan Guaranteed Move\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa yang dapat dilakukan compiler pada `return Vec{};`?",
+      "options": [
+        "Membentuk result object langsung tanpa move.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Prvalue dapat di-elide secara dijamin pada banyak kondisi C++17."
+    }
+  },
+  {
+    "id": 35,
+    "slug": "cpp-lesson-35",
+    "title": "35. STL Container dan Allocation Strategy",
+    "module": "Move Semantics, STL, dan In-Place Construction",
+    "moduleId": 6,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# STL Container dan Allocation Strategy\n\n### Materi Inti:\n- Tradeoff vector, deque, list, map, set, dan unordered_map.\n- Iterator invalidation, reserve, resize, dan shrink-to-fit.\n- Copy versus move behavior pada container.",
+    "code": "// C++ C++11/C++17\n#include <iostream>\n\nint main() {\n    std::cout << \"STL Container dan Allocation Strategy\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa perbedaan `reserve(n)` dan `resize(n)` pada vector?",
+      "options": [
+        "`reserve` mengubah capacity; `resize` mengubah size.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Capacity menyediakan ruang alokasi, sedangkan size menentukan jumlah elemen aktif."
+    }
+  },
+  {
+    "id": 36,
+    "slug": "cpp-lesson-36",
+    "title": "36. In-Place Construction dengan `emplace`, `optional`, dan `variant`",
+    "module": "Move Semantics, STL, dan In-Place Construction",
+    "moduleId": 6,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# In-Place Construction dengan `emplace`, `optional`, dan `variant`\n\n### Materi Inti:\n- `emplace_back` dan konstruksi langsung di dalam container.\n- `std::optional<T>::emplace` untuk optional move-only value.\n- `std::variant` dan pemilihan alternative secara eksplisit.",
+    "code": "// C++ C++17/C++20\n#include <iostream>\n\nint main() {\n    std::cout << \"In-Place Construction dengan `emplace`, `optional`, dan `variant`\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa tujuan `emplace`?",
+      "options": [
+        "Membentuk objek langsung di lokasi penyimpanan.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Ini mengurangi temporary dan penting untuk move-only types."
+    }
+  },
+  {
+    "id": 37,
+    "slug": "cpp-lesson-37",
+    "title": "37. Iterator dan Standard Algorithms",
+    "module": "Algoritma, Ranges, dan Modern Standard Library",
+    "moduleId": 7,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Iterator dan Standard Algorithms\n\n### Materi Inti:\n- Iterator categories dan range begin/end.\n- `find`, `sort`, `count`, `transform`, dan algorithm contracts.\n- Lambda expression untuk operasi lokal.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Iterator dan Standard Algorithms\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Alasan apa yang dibutuhkan `std::sort` pada seluruh range?",
+      "options": [
+        "Random-access iterator.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "`std::sort` memerlukan kemampuan akses acak untuk strategi sorting-nya."
+    }
+  },
+  {
+    "id": 38,
+    "slug": "cpp-lesson-38",
+    "title": "38. Ranges Views: Lazy dan Non-Owning",
+    "module": "Algoritma, Ranges, dan Modern Standard Library",
+    "moduleId": 7,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Ranges Views: Lazy dan Non-Owning\n\n### Materi Inti:\n- `views::filter`, `transform`, `take`, dan `drop`.\n- View versus owning range.\n- Lazy evaluation dan lifetime adaptor.",
+    "code": "// C++ C++20\n#include <iostream>\n\nint main() {\n    std::cout << \"Ranges Views: Lazy dan Non-Owning\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Kapan view ranges biasanya dieksekusi?",
+      "options": [
+        "Ketika range di-iterate atau dikonsumsi.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Views memisahkan deklarasi transformasi dari eksekusi."
+    }
+  },
+  {
+    "id": 39,
+    "slug": "cpp-lesson-39",
+    "title": "39. Range Algorithms dan Range Concepts",
+    "module": "Algoritma, Ranges, dan Modern Standard Library",
+    "moduleId": 7,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Range Algorithms dan Range Concepts\n\n### Materi Inti:\n- `std::ranges::sort`, `find`, dan `for_each`.\n- Input, output, forward, sortable, dan mutable range requirements.\n- Mengurangi manual iterator arithmetic.",
+    "code": "// C++ C++20\n#include <iostream>\n\nint main() {\n    std::cout << \"Range Algorithms dan Range Concepts\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Bagaimana range algorithms menemukan awal dan akhir range?",
+      "options": [
+        "Melalui range protocol begin/end.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Ranges mengurangi ketergantungan pada iterator manual yang tidak konsisten."
+    }
+  },
+  {
+    "id": 40,
+    "slug": "cpp-lesson-40",
+    "title": "40. Mengomposisikan Ranges: `zip`, `chunk`, `slide`, dan `enumerate`",
+    "module": "Algoritma, Ranges, dan Modern Standard Library",
+    "moduleId": 7,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Mengomposisikan Ranges: `zip`, `chunk`, `slide`, dan `enumerate`\n\n### Materi Inti:\n- `views::zip` untuk beberapa range paralel.\n- `views::chunk`, `slide`, dan `enumerate`.\n- Tuple-like elements, overflow behavior, dan lifetime.",
+    "code": "// C++ C++23\n#include <iostream>\n\nint main() {\n    std::cout << \"Mengomposisikan Ranges: `zip`, `chunk`, `slide`, dan `enumerate`\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa hasil `views::chunk(3)`?",
+      "options": [
+        "Membagi range menjadi sub-range berisi maksimal tiga elemen.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Chunk memperlakukan elemen sebagai kelompok kecil."
+    }
+  },
+  {
+    "id": 41,
+    "slug": "cpp-lesson-41",
+    "title": "41. Error Value dengan `std::expected` dan `std::optional`",
+    "module": "Algoritma, Ranges, dan Modern Standard Library",
+    "moduleId": 7,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Error Value dengan `std::expected` dan `std::optional`\n\n### Materi Inti:\n- `optional<T>` untuk absence tanpa error detail.\n- `expected<T,E>` untuk success atau error terstruktur.\n- Composing operations dengan `and_then`, `transform`, dan `or_else`.",
+    "code": "// C++ C++23\n#include <iostream>\n\nint main() {\n    std::cout << \"Error Value dengan `std::expected` dan `std::optional`\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa representasi utama `std::expected<T, E>`?",
+      "options": [
+        "Satu dari dua state: value `T` atau error `E`.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Expected lebih informatif daripada optional ketika operasi dapat gagal dengan alasan."
+    }
+  },
+  {
+    "id": 42,
+    "slug": "cpp-lesson-42",
+    "title": "42. API Modern C++20/23: Format, Print, Numbers, dan `mdspan`",
+    "module": "Algoritma, Ranges, dan Modern Standard Library",
+    "moduleId": 7,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# API Modern C++20/23: Format, Print, Numbers, dan `mdspan`\n\n### Materi Inti:\n- `std::format`, `std::print`, dan feature-test macros.\n- `std::numbers` untuk konstanta numerik standar.\n- `std::mdspan` untuk multidimensional view tanpa ownership.",
+    "code": "// C++ C++20/C++23\n#include <iostream>\n\nint main() {\n    std::cout << \"API Modern C++20/23: Format, Print, Numbers, dan `mdspan`\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa fungsi `std::print` dalam C++23?",
+      "options": [
+        "Menulis formatted text langsung ke stdout.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "`print` mengurangi kebutuhan membuat intermediate string."
+    }
+  },
+  {
+    "id": 43,
+    "slug": "cpp-lesson-43",
+    "title": "43. Thread Dasar, Join, dan Detach",
+    "module": "Concurrency dan Parallelism",
+    "moduleId": 8,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Thread Dasar, Join, dan Detach\n\n### Materi Inti:\n- Membuat, menjalankan, `join`, dan `detach` thread.\n- Lifetime thread dan bahaya detach tanpa koordinasi.\n- Data race versus race condition.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Thread Dasar, Join, dan Detach\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa fungsi `std::thread::join()`?",
+      "options": [
+        "Menunggu thread selesai sebelum melanjutkan.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Join memastikan lifetime dan hasil thread selesai sebelum scope berlanjut."
+    }
+  },
+  {
+    "id": 44,
+    "slug": "cpp-lesson-44",
+    "title": "44. Mutex, `lock_guard`, dan Condition Variable",
+    "module": "Concurrency dan Parallelism",
+    "moduleId": 8,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Mutex, `lock_guard`, dan Condition Variable\n\n### Materi Inti:\n- Critical section dan mutual exclusion.\n- RAII locking dengan `lock_guard` dan `unique_lock`.\n- Condition variable, predicate loop, notify-one/all.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"Mutex, `lock_guard`, dan Condition Variable\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Mengapa condition variable harus digunakan dalam loop predicate?",
+      "options": [
+        "Untuk menangani spurious wakeup dan kondisi yang berubah.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Notify tidak membuktikan kondisi yang diinginkan sudah terpenuhi."
+    }
+  },
+  {
+    "id": 45,
+    "slug": "cpp-lesson-45",
+    "title": "45. Atomic dan Memory Ordering",
+    "module": "Concurrency dan Parallelism",
+    "moduleId": 8,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Atomic dan Memory Ordering\n\n### Materi Inti:\n- Atomic load/store, fetch-add, compare-exchange.\n- Relaxed, acquire, release, dan sequential consistency.\n- Lock-free atomic dan tradeoff performance.",
+    "code": "// C++ C++11/C++20\n#include <iostream>\n\nint main() {\n    std::cout << \"Atomic dan Memory Ordering\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa yang dijamin atomic relaxed?",
+      "options": [
+        "Atomicity operation, tetapi tidak memberi global ordering antar thread.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Relaxed cocok untuk counter murni, bukan untuk melindungi data kompleks."
+    }
+  },
+  {
+    "id": 46,
+    "slug": "cpp-lesson-46",
+    "title": "46. `std::async`, Future, dan Task",
+    "module": "Concurrency dan Parallelism",
+    "moduleId": 8,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# `std::async`, Future, dan Task\n\n### Materi Inti:\n- Launch policy dan asynchronous execution.\n- Future/get, exception propagation, dan timeout.\n- Lifetime task dan bahaya menunggu terlalu lama.",
+    "code": "// C++ C++11\n#include <iostream>\n\nint main() {\n    std::cout << \"`std::async`, Future, dan Task\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa yang dilakukan `future::get()`?",
+      "options": [
+        "Memblokir sampai result tersedia, lalu mengembalikan value atau melempar exception.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Future menyalin exception task ke pemanggil get."
+    }
+  },
+  {
+    "id": 47,
+    "slug": "cpp-lesson-47",
+    "title": "47. Thread Pool, Deadlock, dan Concurrency Pitfalls",
+    "module": "Concurrency dan Parallelism",
+    "moduleId": 8,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Thread Pool, Deadlock, dan Concurrency Pitfalls\n\n### Materi Inti:\n- Work queue, worker lifetime, dan task scheduling.\n- Deadlock, starvation, ABA, false sharing, dan lock ordering.\n- Desain bounded concurrency dan backpressure.",
+    "code": "// C++ C++11/C++17\n#include <iostream>\n\nint main() {\n    std::cout << \"Thread Pool, Deadlock, dan Concurrency Pitfalls\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Prinsip apa yang mencegah banyak deadlock sederhana?",
+      "options": [
+        "Jangan memegang mutex sambil menunggu resource milik thread lain.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Gunakan lock ordering tetap atau release lock sebelum menunggu."
+    }
+  },
+  {
+    "id": 48,
+    "slug": "cpp-lesson-48",
+    "title": "48. Pengantar Coroutine: Suspension dan Resumption",
+    "module": "Concurrency dan Parallelism",
+    "moduleId": 8,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Pengantar Coroutine: Suspension dan Resumption\n\n### Materi Inti:\n- Coroutine frame, promise object, dan awaiter.\n- `co_await`, `co_yield`, dan `co_return`.\n- Perbedaan blocking thread dengan cooperative suspension.",
+    "code": "// C++ C++20\n#include <iostream>\n\nint main() {\n    std::cout << \"Pengantar Coroutine: Suspension dan Resumption\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa syarat utama ekspresi pada `co_await`?",
+      "options": [
+        "Harus merupakan awaitable yang dapat diterima awaiter.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Compiler membutuhkan operasi await_ready, await_suspend, dan await_resume."
+    }
+  },
+  {
+    "id": 49,
+    "slug": "cpp-lesson-49",
+    "title": "49. Membangun Coroutine dari Komponen Dasar",
+    "module": "Coroutine Lanjutan, Concepts, dan Ranges",
+    "moduleId": 9,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Membangun Coroutine dari Komponen Dasar\n\n### Materi Inti:\n- Promise methods: `return_value`, `yield_value`, `initial_suspend`, dan `final_suspend`.\n- Coroutine return object dan exception propagation.\n- Mengapa coroutine bukan thread.",
+    "code": "// C++ C++20\n#include <iostream>\n\nint main() {\n    std::cout << \"Membangun Coroutine dari Komponen Dasar\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa peran `promise_type`?",
+      "options": [
+        "Mendefinisikan interface dan state khusus coroutine.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Compiler menggunakan promise type untuk membangun coroutine frame dan return object."
+    }
+  },
+  {
+    "id": 50,
+    "slug": "cpp-lesson-50",
+    "title": "50. Async/Await dengan Executor dan Cancellation",
+    "module": "Coroutine Lanjutan, Concepts, dan Ranges",
+    "moduleId": 9,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Async/Await dengan Executor dan Cancellation\n\n### Materi Inti:\n- Custom awaiter dan executor policy.\n- Exception propagation, timeout, dan cancellation token.\n- Composing async operations tanpa nested blocking.",
+    "code": "// C++ C++20\n#include <iostream>\n\nint main() {\n    std::cout << \"Async/Await dengan Executor dan Cancellation\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apakah `std::async` memiliki cancellation token standar?",
+      "options": [
+        "Tidak.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Cancellation harus dirancang secara kooperatif atau menggunakan abstraction lain."
+    }
+  },
+  {
+    "id": 51,
+    "slug": "cpp-lesson-51",
+    "title": "51. Generator dengan `std::generator` C++23",
+    "module": "Coroutine Lanjutan, Concepts, dan Ranges",
+    "moduleId": 9,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Generator dengan `std::generator` C++23\n\n### Materi Inti:\n- `co_yield` sebagai lazy producer.\n- Backpressure, range protocol, dan lifetime iterator.\n- Menggabungkan generator dengan ranges.",
+    "code": "// C++ C++23\n#include <iostream>\n\nint main() {\n    std::cout << \"Generator dengan `std::generator` C++23\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Berapa banyak nilai yang dihasilkan generator per resume?",
+      "options": [
+        "Satu nilai per `co_yield` yang dicapai.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Generator menghentikan eksekusi setiap kaliyield dan melanjutkan saat iterator maju."
+    }
+  },
+  {
+    "id": 52,
+    "slug": "cpp-lesson-52",
+    "title": "52. Concepts dan Constrained Overload",
+    "module": "Coroutine Lanjutan, Concepts, dan Ranges",
+    "moduleId": 9,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Concepts dan Constrained Overload\n\n### Materi Inti:\n- `requires` expression dan named concept.\n- Constraint satisfaction dan overload resolution.\n- Mengganti SFINAE noise dengan diagnostic yang jelas.",
+    "code": "// C++ C++20\n#include <iostream>\n\nint main() {\n    std::cout << \"Concepts dan Constrained Overload\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Kapan concept dievaluasi?",
+      "options": [
+        "Selama constraint satisfaction pada kompilasi.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Concept membatasi kandidat yang dapat dipilih compiler."
+    }
+  },
+  {
+    "id": 53,
+    "slug": "cpp-lesson-53",
+    "title": "53. Custom Range, `view`, dan `borrowed_range`",
+    "module": "Coroutine Lanjutan, Concepts, dan Ranges",
+    "moduleId": 9,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Custom Range, `view`, dan `borrowed_range`\n\n### Materi Inti:\n- Range requirements dan `range_reference_t`.\n- View, borrowed range, dan adaptor customization.\n- `views::as_const`, `cache_latest`, `chunk`, `slide`, dan `enumerate`.",
+    "code": "// C++ C++20/C++23\n#include <iostream>\n\nint main() {\n    std::cout << \"Custom Range, `view`, dan `borrowed_range`\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa arti `borrowed_range`?",
+      "options": [
+        "Iterator tetap valid setelah range temporary dihancurkan.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Requirement ini mencegah dangling iterator pada adaptor ranges."
+    }
+  },
+  {
+    "id": 54,
+    "slug": "cpp-lesson-54",
+    "title": "54. Modern Generic Design: Templates + Concepts + Ranges",
+    "module": "Coroutine Lanjutan, Concepts, dan Ranges",
+    "moduleId": 9,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Modern Generic Design: Templates + Concepts + Ranges\n\n### Materi Inti:\n- Menggabungkan constrained template, range algorithms, dan move-only values.\n- API generik dengan error type dan no unnecessary copy.\n- Menulis benchmark serta test matrix untuk beberapa tipe.",
+    "code": "// C++ C++20/C++23\n#include <iostream>\n\nint main() {\n    std::cout << \"Modern Generic Design: Templates + Concepts + Ranges\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Requirement apa yang diperlukan `std::ranges::sort`?",
+      "options": [
+        "Range harus sortable dan mutable.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Sorting membutuhkan kemampuan membaca dan menulis elemen."
+    }
+  },
+  {
+    "id": 55,
+    "slug": "cpp-lesson-55",
+    "title": "55. Migrasi ke C++23 Library",
+    "module": "C++23, Performa, Reliabilitas, dan Capstone",
+    "moduleId": 10,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Migrasi ke C++23 Library\n\n### Materi Inti:\n- `std::expected`, `std::print`, `std::source_location`, dan string `contains`.\n- `std::ranges::to`, `std::mdspan`, dan `std::generator`.\n- Feature-test macros dan strategi fallback compiler.",
+    "code": "// C++ C++23\n#include <iostream>\n\nint main() {\n    std::cout << \"Migrasi ke C++23 Library\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa fungsi utama `std::expected<T, E>`?",
+      "options": [
+        "Mewakili value sukses atau error terstruktur.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Expected membantu.error handling tanpa menggunakan exception untuk alur normal."
+    }
+  },
+  {
+    "id": 56,
+    "slug": "cpp-lesson-56",
+    "title": "56. Performance, Profiling, dan Optimization yang Terukur",
+    "module": "C++23, Performa, Reliabilitas, dan Capstone",
+    "moduleId": 10,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Performance, Profiling, dan Optimization yang Terukur\n\n### Materi Inti:\n- Big-O, cache locality, branch prediction, dan allocation cost.\n- Move semantics, emplace, reserve, dan avoiding unnecessary copy.\n- Benchmark, profiler, dan reproducibility.",
+    "code": "// C++ C++17/C++20\n#include <iostream>\n\nint main() {\n    std::cout << \"Performance, Profiling, dan Optimization yang Terukur\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apakah `reserve` mengubah size vector?",
+      "options": [
+        "Tidak; reserve hanya mengubah capacity.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Elemen baru tetap harus ditambahkan dengan resize/emplace/push."
+    }
+  },
+  {
+    "id": 57,
+    "slug": "cpp-lesson-57",
+    "title": "57. Reliabilitas, Security, dan Test Matrix",
+    "module": "C++23, Performa, Reliabilitas, dan Capstone",
+    "moduleId": 10,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Reliabilitas, Security, dan Test Matrix\n\n### Materi Inti:\n- Sanitizer, invariant test, property test, dan fuzzing ringan.\n- Input validation, ownership contract, dan secure defaults.\n- Testing pada edge case, malformed input, dan concurrent path.",
+    "code": "// C++ C++11\u2013C++23\n#include <iostream>\n\nint main() {\n    std::cout << \"Reliabilitas, Security, dan Test Matrix\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Bagaimana mendokumentasikan raw pointer non-owning?",
+      "options": [
+        "Jelaskan bahwa pointer tidak memiliki ownership dan lifetime harus dijaga caller.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Tanpa kontrak lifetime, raw pointer mudah menjadi dangling."
+    }
+  },
+  {
+    "id": 58,
+    "slug": "cpp-lesson-58",
+    "title": "58. Arsitektur, C++20 Modules, Build, dan CI",
+    "module": "C++23, Performa, Reliabilitas, dan Capstone",
+    "moduleId": 10,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Arsitektur, C++20 Modules, Build, dan CI\n\n### Materi Inti:\n- Layering, interface boundary, dependency inversion, dan module boundary.\n- CMake/compiler flags, WebAssembly build, dan browser execution.\n- CI untuk build, test, sanitizer, dan format/lint.",
+    "code": "// C++ C++20/C++23\n#include <iostream>\n\nint main() {\n    std::cout << \"Arsitektur, C++20 Modules, Build, dan CI\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Apa tujuan interface boundary dalam arsitektur C++?",
+      "options": [
+        "Mengurangi coupling dan menyembunyikan implementasi.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Client bergantung pada kontrak stabil, bukan detail internal."
+    }
+  },
+  {
+    "id": 59,
+    "slug": "cpp-lesson-59",
+    "title": "59. Capstone Design: Modern Data Pipeline",
+    "module": "C++23, Performa, Reliabilitas, dan Capstone",
+    "moduleId": 10,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Capstone Design: Modern Data Pipeline\n\n### Materi Inti:\n- Merancang domain type, ownership, error handling, dan API.\n- Memilih templates, concepts, ranges, smart pointer, dan coroutine secara tepat.\n- Menentukan acceptance criteria, benchmark, dan test cases.",
+    "code": "// C++ C++20/C++23\n#include <iostream>\n\nint main() {\n    std::cout << \"Capstone Design: Modern Data Pipeline\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Sebelum coding, aspek ownership dan async apa yang harus ditentukan?",
+      "options": [
+        "Siapa pemilik resource, kapan resource mati, siapa menjalankan operasi async, dan bagaimana exception/cancellation ditangani.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Keputusan ini menentukan smart pointer, coroutine awaiter, dan synchronization."
+    }
+  },
+  {
+    "id": 60,
+    "slug": "cpp-lesson-60",
+    "title": "60. Capstone Implementation, Demo, dan Refleksi",
+    "module": "C++23, Performa, Reliabilitas, dan Capstone",
+    "moduleId": 10,
+    "duration": "15 m",
+    "level": "Semua",
+    "content": "# Capstone Implementation, Demo, dan Refleksi\n\n### Materi Inti:\n- Implementasi end-to-end di JupyterLite/WebAssembly.\n- Menjalankan unit test, sanitizer, dan benchmark.\n- Menjelaskan tradeoff, hasil, keterbatasan, dan langkah pengembangan.",
+    "code": "// C++ C++20/C++23\n#include <iostream>\n\nint main() {\n    std::cout << \"Capstone Implementation, Demo, dan Refleksi\" << std::endl;\n    return 0;\n}",
+    "quiz": {
+      "question": "Kapan memilih `unique_ptr` daripada `shared_ptr` dalam capstone?",
+      "options": [
+        "Ketika ownership eksklusif dan cycle risk tidak ada.",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D"
+      ],
+      "answer": 0,
+      "explanation": "Unique_ptr lebih sederhana, lebih murah, dan membuat ownership lebih jelas."
     }
   }
 ];
 
-// Application State
-let currentLessonIndex = 0;
-let progress = JSON.parse(localStorage.getItem('cpp_progress') || '{}');
-let completedLessons = JSON.parse(localStorage.getItem('cpp_completed_lessons') || '[]');
-
-// DOM Elements cache
-let lessonTitle, breadcrumb, lessonDuration, lessonLevel, lessonContent;
-let codeEditor, outputTerminal, quizSection, quizContent, quizResult;
-let prevBtn, nextBtn, completeBtn, completedBtn;
-
-document.addEventListener('DOMContentLoaded', () => {
-    initElements();
-    renderNav();
-    
-    // Auto-resume last lesson
-    const savedLesson = parseInt(localStorage.getItem('cpp_last_lesson'), 10);
-    if (!isNaN(savedLesson) && savedLesson >= 0 && savedLesson < lessons.length) {
-        loadLesson(savedLesson);
-    } else {
-        loadLesson(0);
-    }
-    
-    updateProgressUI();
-});
-
-function initElements() {
-    lessonTitle = document.getElementById('lesson-title');
-    breadcrumb = document.getElementById('breadcrumb');
-    lessonDuration = document.getElementById('lesson-duration');
-    lessonLevel = document.getElementById('lesson-level');
-    lessonContent = document.getElementById('lesson-content');
-    codeEditor = document.getElementById('code-editor');
-    outputTerminal = document.getElementById('output');
-    quizSection = document.getElementById('quiz-section');
-    quizContent = document.getElementById('quiz-content');
-    quizResult = document.getElementById('quiz-result');
-    prevBtn = document.getElementById('prev-btn');
-    nextBtn = document.getElementById('next-btn');
-    completeBtn = document.getElementById('complete-btn');
-    completedBtn = document.getElementById('completed-btn');
-}
-
-window.renderNav = function(filter = '') {
-    const nav = document.getElementById('lessons-nav');
-    if (!nav) return;
-    nav.innerHTML = '';
-    
-    MODULES.forEach(mod => {
-        const modLessons = lessons.filter(l => l.moduleId === mod.id && (!filter || l.title.toLowerCase().includes(filter.toLowerCase())));
-        if (modLessons.length === 0) return;
-        
-        const modEl = document.createElement('div');
-        modEl.className = 'mb-4';
-        
-        const header = document.createElement('div');
-        header.className = 'px-3 py-1.5 text-[11px] font-bold tracking-wider uppercase text-slate-400 flex items-center gap-2';
-        header.innerHTML = `<i class="${mod.icon} text-blue-400 text-xs"></i> ${mod.title}`;
-        modEl.appendChild(header);
-        
-        const list = document.createElement('div');
-        list.className = 'mt-1 space-y-0.5';
-        
-        modLessons.forEach(l => {
-            const idx = lessons.findIndex(x => x.id === l.id);
-            const isDone = !!progress[l.id];
-            const isCurrent = idx === currentLessonIndex;
-            
-            const item = document.createElement('button');
-            item.className = `w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition ${
-                isCurrent 
-                    ? 'bg-blue-500/15 text-blue-400 font-semibold border border-blue-500/30' 
-                    : 'text-slate-300 hover:bg-white/5'
-            }`;
-            item.innerHTML = `
-                <span class="truncate pr-2">${l.title}</span>
-                <i class="fas ${isDone ? 'fa-check-circle text-emerald-400' : 'fa-circle text-slate-700'} text-[11px] shrink-0"></i>
-            `;
-            item.addEventListener('click', () => {
-                loadLesson(idx);
-                if (typeof window.closeSidebar === 'function') window.closeSidebar();
-            });
-            list.appendChild(item);
-        });
-        
-        modEl.appendChild(list);
-        nav.appendChild(modEl);
-    });
-};
-
-window.loadLesson = function(index) {
-    if (index < 0 || index >= lessons.length) return;
-    currentLessonIndex = index;
-    localStorage.setItem('cpp_last_lesson', index);
-    
-    const l = lessons[index];
-    if (lessonTitle) lessonTitle.textContent = l.title;
-    if (breadcrumb) breadcrumb.textContent = `${l.module} • Pelajaran ${index + 1} dari ${lessons.length}`;
-    
-    if (lessonDuration) {
-        lessonDuration.classList.remove('hidden');
-        lessonDuration.textContent = l.duration;
-    }
-    if (lessonLevel) {
-        lessonLevel.classList.remove('hidden');
-        lessonLevel.textContent = l.level;
-    }
-    
-    if (lessonContent && typeof marked !== 'undefined') {
-        lessonContent.innerHTML = marked.parse(l.content);
-        lessonContent.querySelectorAll('pre code').forEach(el => {
-            if (typeof hljs !== 'undefined') hljs.highlightElement(el);
-        });
-    }
-    
-    if (codeEditor) {
-        codeEditor.value = l.defaultCode;
-    }
-    
-    if (outputTerminal) {
-        outputTerminal.innerHTML = '<span class="text-slate-600">// Tekan Run untuk mengompilasi kode C++</span>';
-    }
-    
-    // Render Quiz
-    renderQuizUI(l.quiz);
-    
-    // Buttons state
-    if (prevBtn) prevBtn.disabled = index === 0;
-    if (nextBtn) {
-        nextBtn.innerHTML = index === lessons.length - 1 ? 'Selesai 🎉' : 'Next <i class="fas fa-chevron-right text-xs"></i>';
-    }
-    
-    updateCompleteButtonState(l.id);
-    renderNav();
-    updateProgressUI();
-    
-    const scrollArea = document.getElementById('content-scroll');
-    if (scrollArea) scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
-};
-
-function renderQuizUI(quiz) {
-    if (!quizSection || !quizContent) return;
-    if (!quiz) {
-        quizSection.classList.add('hidden');
-        return;
-    }
-    quizSection.classList.remove('hidden');
-    if (quizResult) quizResult.innerHTML = '';
-    
-    quizContent.innerHTML = `
-        <p class="text-sm font-semibold text-slate-100 mb-3">${quiz.question}</p>
-        <div class="space-y-2">
-            ${quiz.options.map((opt, i) => `
-                <label class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/5 cursor-pointer transition">
-                    <input type="radio" name="quiz-option" value="${i}" class="w-4 h-4 text-blue-500 focus:ring-blue-500/20">
-                    <span class="text-xs sm:text-sm text-slate-300 font-medium">${opt}</span>
-                </label>
-            `).join('')}
-        </div>
-    `;
-}
-
-window.checkQuiz = function() {
-    const l = lessons[currentLessonIndex];
-    if (!l || !l.quiz || !quizResult) return;
-    
-    const selected = document.querySelector('input[name="quiz-option"]:checked');
-    if (!selected) {
-        quizResult.innerHTML = '<div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs">Pilih salah satu jawaban terlebih dahulu.</div>';
-        return;
-    }
-    
-    const val = parseInt(selected.value, 10);
-    if (val === l.quiz.answer) {
-        quizResult.innerHTML = `
-            <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs space-y-1">
-                <div class="font-bold flex items-center gap-1.5"><i class="fas fa-check-circle"></i> Jawaban Benar!</div>
-                <p class="text-slate-300">${l.quiz.explanation || 'Pemahaman Anda terhadap konsep Modern C++ ini sangat tepat.'}</p>
-            </div>
-        `;
-        markComplete();
-    } else {
-        quizResult.innerHTML = `
-            <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs space-y-1">
-                <div class="font-bold flex items-center gap-1.5"><i class="fas fa-times-circle"></i> Kurang Tepat</div>
-                <p class="text-slate-300">Coba tinjau kembali pembahasan materi di atas dan ulangi kuis.</p>
-            </div>
-        `;
-    }
-};
-
-window.runCode = async function() {
-    if (!codeEditor || !outputTerminal) return;
-    const code = codeEditor.value;
-    outputTerminal.innerHTML = '<span class="text-blue-400 animate-pulse"><i class="fas fa-spinner fa-spin mr-1"></i> Mengompilasi kode via Wandbox GCC 13 (C++20)…</span>';
-    
-    try {
-        const res = await fetch('https://wandbox.org/api/compile.json', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                compiler: 'gcc-13.2.0',
-                options: 'c++20,warning,optimize',
-                code: code
-            })
-        });
-        
-        if (!res.ok) throw new Error('Compiler service unreachable');
-        const data = await res.json();
-        
-        if (data.status === '0' || (!data.compiler_error && data.program_output)) {
-            const out = data.program_output || '(Program selesai tanpa output stdout)';
-            outputTerminal.innerHTML = `<span class="text-emerald-400 font-mono">${escapeHtml(out)}</span>`;
-            markComplete();
-        } else {
-            const err = data.compiler_error || data.program_error || 'Terjadi kesalahan kompilasi.';
-            outputTerminal.innerHTML = `<span class="text-rose-400 font-mono">${escapeHtml(err)}</span>`;
-        }
-    } catch (err) {
-        // Fallback simulation
-        const l = lessons[currentLessonIndex];
-        const out = l.expectedOutput ? l.expectedOutput : 'Halo dari Modern C++20!';
-        outputTerminal.innerHTML = `<span class="text-emerald-400 font-mono">${escapeHtml(out)}</span>\n<span class="text-xs text-slate-500 font-mono">// Dievaluasi via offline sandbox fallback</span>`;
-        markComplete();
-    }
-};
-
-window.resetCode = function() {
-    const l = lessons[currentLessonIndex];
-    if (codeEditor && l) {
-        codeEditor.value = l.defaultCode;
-        if (outputTerminal) outputTerminal.innerHTML = '<span class="text-slate-600">// Kode direset</span>';
-    }
-};
-
-window.nextLesson = function() {
-    if (currentLessonIndex < lessons.length - 1) {
-        loadLesson(currentLessonIndex + 1);
-    }
-};
-
-window.prevLesson = function() {
-    if (currentLessonIndex > 0) {
-        loadLesson(currentLessonIndex - 1);
-    }
-};
-
-window.markComplete = function() {
-    const l = lessons[currentLessonIndex];
-    if (!l) return;
-    progress[l.id] = true;
-    if (!completedLessons.includes(l.id)) completedLessons.push(l.id);
-    
-    localStorage.setItem('cpp_progress', JSON.stringify(progress));
-    localStorage.setItem('cpp_completed_lessons', JSON.stringify(completedLessons));
-    
-    updateCompleteButtonState(l.id);
-    updateProgressUI();
-    renderNav();
-};
-
-function updateCompleteButtonState(lessonId) {
-    const isDone = !!progress[lessonId];
-    if (completeBtn && completedBtn) {
-        if (isDone) {
-            completeBtn.style.display = 'none';
-            completedBtn.style.display = 'inline-flex';
-        } else {
-            completeBtn.style.display = 'inline-flex';
-            completedBtn.style.display = 'none';
-        }
-    }
-}
-
-function updateProgressUI() {
-    const total = lessons.length;
-    const done = Object.keys(progress).filter(k => !!progress[k]).length;
-    const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-    
-    const cp = document.getElementById('course-progress');
-    const mp = document.getElementById('mobile-progress');
-    const pf = document.getElementById('progress-fill');
-    const pfb = document.getElementById('progress-fill-bar');
-    const sd = document.getElementById('stat-done');
-    
-    if (cp) cp.textContent = `${pct}%`;
-    if (mp) mp.textContent = `${pct}%`;
-    if (pf) pf.style.width = `${pct}%`;
-    if (pfb) pfb.style.width = `${pct}%`;
-    if (sd) sd.textContent = `${done}`;
-}
-
-window.resetProgress = function() {
-    if (confirm('Yakin ingin mereset seluruh progress belajar C++ Anda?')) {
-        progress = {};
-        completedLessons = [];
-        localStorage.removeItem('cpp_progress');
-        localStorage.removeItem('cpp_completed_lessons');
-        localStorage.removeItem('cpp_last_lesson');
-        loadLesson(0);
-    }
-};
-
-// Certificate Features
-window.isCourseFullyCompleted = function() {
-    const total = lessons.length;
-    const done = Object.keys(progress).filter(k => !!progress[k]).length;
-    return total > 0 && done >= total;
-};
-
-window.openCertificateModal = function() {
-    const modal = document.getElementById('certificate-modal');
-    if (!modal) return;
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    
-    const total = lessons.length;
-    const done = Object.keys(progress).filter(k => !!progress[k]).length;
-    const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-    const isCompleted = done >= total && total > 0;
-    
-    const lockedView = document.getElementById('cert-locked-view');
-    const unlockedView = document.getElementById('cert-unlocked-view');
-    const unlockedFooter = document.getElementById('cert-unlocked-footer');
-    
-    if (!isCompleted) {
-        if (lockedView) lockedView.classList.remove('hidden');
-        if (unlockedView) unlockedView.classList.add('hidden');
-        if (unlockedFooter) unlockedFooter.classList.add('hidden');
-        
-        const pText = document.getElementById('cert-locked-progress-text');
-        const pBar = document.getElementById('cert-locked-progress-bar');
-        const rText = document.getElementById('cert-locked-remaining-text');
-        if (pText) pText.textContent = `${done} / ${total} (${pct}%)`;
-        if (pBar) pBar.style.width = `${pct}%`;
-        if (rText) rText.textContent = `Tersisa ${Math.max(0, total - done)} pelajaran lagi untuk membuka sertifikat.`;
-    } else {
-        if (lockedView) lockedView.classList.add('hidden');
-        if (unlockedView) unlockedView.classList.remove('hidden');
-        if (unlockedFooter) unlockedFooter.classList.remove('hidden');
-        
-        const savedName = localStorage.getItem('user_cert_name') || 'Systems Software Engineer';
-        const input = document.getElementById('cert-name-input');
-        if (input) input.value = savedName;
-        
-        setTimeout(() => window.drawCertificate(), 100);
-    }
-};
-
-window.closeCertificateModal = function() {
-    const modal = document.getElementById('certificate-modal');
-    if (!modal) return;
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-};
-
-window.drawCertificate = function() {
-    if (!window.isCourseFullyCompleted()) return;
-    const canvas = document.getElementById('cert-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const width = canvas.width;
-    const height = canvas.height;
-    
-    const studentName = (document.getElementById('cert-name-input')?.value || 'Systems Software Engineer').trim();
-    localStorage.setItem('user_cert_name', studentName);
-    
-    // Background Dark
-    ctx.fillStyle = '#0a0f1a';
-    ctx.fillRect(0, 0, width, height);
-    
-    // Luxury Gradient Border C++ Blue
-    const gradient = ctx.createLinearGradient(0, 0, width, height);
-    gradient.addColorStop(0, '#2563eb');
-    gradient.addColorStop(0.5, '#3b82f6');
-    gradient.addColorStop(1, '#1d4ed8');
-    
-    ctx.strokeStyle = gradient;
-    ctx.lineWidth = 14;
-    ctx.strokeRect(30, 30, width - 60, height - 60);
-    
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(45, 45, width - 90, height - 90);
-    
-    // Header
-    ctx.textAlign = 'center';
-    ctx.font = '600 16px Inter, sans-serif';
-    ctx.fillStyle = '#60a5fa';
-    ctx.fillText('CERTIFICATE OF COMPLETION', width / 2, 120);
-    
-    ctx.font = '800 38px Inter, sans-serif';
-    ctx.fillStyle = '#ffffff';
-    ctx.fillText('Modern C++20 Systems Engineering', width / 2, 180);
-    
-    ctx.font = '400 16px Inter, sans-serif';
-    ctx.fillStyle = '#94a3b8';
-    ctx.fillText('Diberikan secara resmi dan terverifikasi kepada:', width / 2, 250);
-    
-    // Student Name
-    ctx.font = '800 42px Inter, sans-serif';
-    ctx.fillStyle = '#3b82f6';
-    ctx.fillText(studentName, width / 2, 320);
-    
-    // Statement
-    ctx.font = '400 15px Inter, sans-serif';
-    ctx.fillStyle = '#cbd5e1';
-    ctx.fillText('Telah berhasil menyelesaikan 100% kurikulum C++ Learning Path', width / 2, 380);
-    ctx.fillText('mencakup Pointer & Memory, RAII, STL Containers, Concepts, dan Concurrency.', width / 2, 410);
-    
-    // Meta / Badge
-    const certId = 'CPP-' + Math.abs((studentName + '2026').split('').reduce((a, b) => ((a << 5) - a) + b.charCodeAt(0), 0)).toString(16).toUpperCase();
-    const dateStr = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
-    
-    ctx.font = '500 13px JetBrains Mono, monospace';
-    ctx.fillStyle = '#64748b';
-    ctx.fillText(`ID: ${certId} • Terbit: ${dateStr}`, width / 2, 480);
-    
-    // Footer Seals
-    ctx.textAlign = 'left';
-    ctx.font = '700 14px Inter, sans-serif';
-    ctx.fillStyle = '#e2e8f0';
-    ctx.fillText('PersonalBot AI', 80, 560);
-    ctx.font = '400 12px Inter, sans-serif';
-    ctx.fillStyle = '#64748b';
-    ctx.fillText('Verified Learning Platform', 80, 580);
-    
-    ctx.textAlign = 'right';
-    ctx.font = '700 14px Inter, sans-serif';
-    ctx.fillStyle = '#2563eb';
-    ctx.fillText('100% COMPLETED', width - 80, 560);
-    ctx.font = '400 12px Inter, sans-serif';
-    ctx.fillStyle = '#64748b';
-    ctx.fillText('Modern C++20 Track', width - 80, 580);
-};
-
-window.downloadCertificatePNG = function() {
-    if (!window.isCourseFullyCompleted()) return;
-    const canvas = document.getElementById('cert-canvas');
-    if (!canvas) return;
-    const link = document.createElement('a');
-    link.download = `CPP-Certificate-${(document.getElementById('cert-name-input')?.value || 'Student').replace(/\s+/g, '_')}.png`;
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-};
-
-window.printCertificate = function() {
-    if (!window.isCourseFullyCompleted()) return;
-    const canvas = document.getElementById('cert-canvas');
-    if (!canvas) return;
-    const win = window.open('', '_blank');
-    win.document.write(`
-        <html><head><title>Sertifikat C++</title></head>
-        <body style="margin:0;display:flex;justify-content:center;align-items:center;min-height:100vh;background:#000;">
-            <img src="${canvas.toDataURL('image/png')}" style="max-width:100%;height:auto;" onload="window.print();window.close();"/>
-        </body></html>
-    `);
-    win.document.close();
-};
-
-function escapeHtml(str) {
-    return String(str || '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
-}
-
-// Global exports
 window.MODULES = MODULES;
 window.lessons = lessons;
 window.LESSONS = lessons;
