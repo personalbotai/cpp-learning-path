@@ -270,7 +270,7 @@
         </main>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=e7ecdcbc"></script>
     <script>
     // Mobile Search Bar Toggle
     window.toggleMobileSearch = function(force) {
@@ -677,7 +677,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js').catch(err => console.debug('SW reg skipped:', err));
+                navigator.serviceWorker.register('./sw.js').then(r => r.update()).catch(err => console.debug('SW reg skipped:', err));
             });
         }
     </script>
