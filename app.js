@@ -1,3 +1,4 @@
+const LESSON_FILES = ['lessons/M01-L01.md', 'lessons/M01-L02.md', 'lessons/M01-L03.md', 'lessons/M01-L04.md', 'lessons/M01-L05.md', 'lessons/M01-L06.md', 'lessons/M02-L01.md', 'lessons/M02-L02.md', 'lessons/M02-L03.md', 'lessons/M02-L04.md', 'lessons/M02-L05.md', 'lessons/M02-L06.md', 'lessons/M03-L01.md', 'lessons/M03-L02.md', 'lessons/M03-L03.md', 'lessons/M03-L04.md', 'lessons/M03-L05.md', 'lessons/M03-L06.md', 'lessons/M04-L01.md', 'lessons/M04-L02.md', 'lessons/M04-L03.md', 'lessons/M04-L04.md', 'lessons/M04-L05.md', 'lessons/M04-L06.md', 'lessons/M05-L01.md', 'lessons/M05-L02.md', 'lessons/M05-L03.md', 'lessons/M05-L04.md', 'lessons/M05-L05.md', 'lessons/M05-L06.md', 'lessons/M06-L01.md', 'lessons/M06-L02.md', 'lessons/M06-L03.md', 'lessons/M06-L04.md', 'lessons/M06-L05.md', 'lessons/M06-L06.md', 'lessons/M07-L01.md', 'lessons/M07-L02.md', 'lessons/M07-L03.md', 'lessons/M07-L04.md', 'lessons/M07-L05.md', 'lessons/M07-L06.md', 'lessons/M08-L01.md', 'lessons/M08-L02.md', 'lessons/M08-L03.md', 'lessons/M08-L04.md', 'lessons/M08-L05.md', 'lessons/M08-L06.md', 'lessons/M09-L01.md', 'lessons/M09-L02.md', 'lessons/M09-L03.md', 'lessons/M09-L04.md', 'lessons/M09-L05.md', 'lessons/M09-L06.md', 'lessons/M10-L01.md', 'lessons/M10-L02.md', 'lessons/M10-L03.md', 'lessons/M10-L04.md', 'lessons/M10-L05.md', 'lessons/M10-L06.md'];
 // C++ Learning Path — Core Application & Interactive Engine 🚀
 
 const MODULES = [
@@ -1555,18 +1556,41 @@ async function loadLesson(index) {
     
     let html = '';
     try {
-        // If content exists in the lesson object, use it directly (no fetch needed)
-        if (lesson.content && typeof lesson.content === 'string') {
+        let md = '';
+        const mdCandidate = (typeof LESSON_FILES !== 'undefined' && LESSON_FILES[index]) ? LESSON_FILES[index] : (lesson.mdFile || ('lessons/' + (lesson.slug || '') + '.md'));
+        try {
+            const res = await fetch(mdCandidate);
+            if (res.ok) md = await res.text();
+        } catch (err) {}
+        
+        if (!md && lesson.mdFile) {
+            try {
+                const res = await fetch(lesson.mdFile);
+                if (res.ok) md = await res.text();
+            } catch (err) {}
+        }
+        
+        if (!md && lesson.slug) {
+            try {
+                const res = await fetch('lessons/' + lesson.slug + '.md');
+                if (res.ok) md = await res.text();
+            } catch (err) {}
+        }
+        
+        const rawContent = lesson.content || lesson.content_md || lesson.description || '';
+        if (!md && rawContent) {
+            md = rawContent;
+        }
+        
+        if (md) {
             if (typeof marked !== 'undefined') {
                 marked.setOptions({gfm: true, breaks: true});
-                html = marked.parse(lesson.content);
+                html = marked.parse(md);
             } else {
-                html = `<pre>${escapeHtml(lesson.content)}</pre>`;
+                html = '<pre>' + escapeHtml(md) + '</pre>';
             }
         } else {
-            // Fallback: generate simple content
-            html = `<h2>${escapeHtml(lesson.title)}</h2>
-                   <p>Materi Python modern yang menarik. Mulai menulis kode di editor di bawah.</p>`;
+            html = '<h2>' + escapeHtml(lesson.title) + '</h2><p>Materi sedang diperbarui. Silakan gunakan editor di bawah.</p>';
         }
     } catch (e) {
         html = `<div style="color:var(--text-muted);font-size:.8rem;margin-top:8px">Gagal memuat materi: ${escapeHtml(e.message)}</div>`;
